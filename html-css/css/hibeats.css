@@ -7,10 +7,24 @@ h1, h2, h3, h4, p, span, a {
 }
 
 .dash-menu {
-  background: #00a4da;
+  background: #3584cd;
   overflow: hidden;
   color: white;
   min-height: 768px;
+}
+.dash-menu ul {
+  margin: 0;
+  padding: 0;
+}
+.dash-menu ul li {
+  list-style: none;
+  float: left;
+  width: 100%;
+  padding: 5px;
+}
+.dash-menu ul li:hover {
+  background: #1f507d;
+  cursor: pointer;
 }
 
 .form-control--hibeats {
@@ -34,7 +48,7 @@ ul.result-list li {
   border-bottom: 1px solid #4d4d4d;
 }
 ul.result-list li:hover {
-  background: #00a4da;
+  background: #3584cd;
 }
 ul.result-list li:hover .item-info, ul.result-list li:hover .popularity {
   color: white;
@@ -109,8 +123,37 @@ ul.result-list.result-list--album li img, ul.result-list.result-list--track li i
   margin-bottom: 5px;
 }
 .album-detail ul.track-list li:hover {
-  background: #00a4da;
+  background: #3584cd;
   color: white;
+}
+
+.artist-detail {
+  border-top: 1px solid white;
+}
+.artist-detail h2 {
+  color: white !important;
+  text-align: center;
+  font-size: 4em;
+}
+.artist-detail .favorite-ctrl {
+  width: 30%;
+  margin: auto;
+}
+.artist-detail .result-list.result-list--album li {
+  width: 200px;
+  float: left;
+}
+.artist-detail .result-list.result-list--album li img {
+  width: 100%;
+  margin-bottom: 0;
+}
+.artist-detail .result-list.result-list--album li .item-info {
+  width: 100%;
+  padding-left: 0px;
+}
+.artist-detail .result-list.result-list--album li .item-info h3 {
+  margin-top: 8px;
+  text-align: center;
 }
 
 .btn-hibeats {
@@ -121,13 +164,24 @@ ul.result-list.result-list--album li img, ul.result-list.result-list--track li i
   border-bottom: 2px solid white;
 }
 .btn-hibeats:hover {
-  color: #00a4da;
+  color: #3584cd;
 }
 .btn-hibeats:focus {
   color: white;
 }
 
 .btn-hibeats.active {
-  border-top: 2px solid #00a4da;
-  border-bottom: 2px solid #00a4da;
+  border-top: 2px solid #3584cd;
+  border-bottom: 2px solid #3584cd;
+}
+
+.btn-favorite {
+  outline: none !important;
+  background: #3584cd;
+  color: white;
+  transition: all ease 0.4s;
+}
+.btn-favorite:hover {
+  background: #296aa6;
+  color: white;
 }

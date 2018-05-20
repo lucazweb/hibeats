@@ -4,7 +4,8 @@ $cor-branca: white;
 $cor-vermelha-hot: #af3535;
 $cor-amarelo-regular: gold;
 $cor-roxa-cool:#ad61b9;
-$cor-azul-padrao: #00a4da;
+$cor-azul-padrao: #3584cd;
+
 body{
     background: $cor-preta;
 }
@@ -18,6 +19,19 @@ h1, h2, h3, h4, p, span, a{
     overflow:hidden;
     color:$cor-branca;
     min-height:768px;
+    ul{
+        margin:0; padding:0;
+        li{
+            list-style: none;
+            float: left;
+            width: 100%;
+            padding:5px;
+            &:hover{
+                background: darken($cor-azul-padrao, 20%);
+                cursor: pointer;
+            }
+        }
+    } 
 }
 
 
@@ -132,6 +146,40 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
 
 }
 
+.artist-detail{
+    border-top:1px solid $cor-branca;
+    h2{
+        color:$cor-branca !important;
+        text-align: center;
+        font-size: 4em;
+    }
+
+    .favorite-ctrl{
+        width:30%;
+        margin:auto;
+    }
+
+    .result-list.result-list--album{
+        li{
+            width: 200px;
+            float:left;   
+            img{
+                width: 100%;
+                margin-bottom: 0;
+            }   
+            .item-info{
+                width: 100%;
+                padding-left: 0px;
+                h3{
+                    margin-top:8px;
+                    text-align: center;
+                }
+            }         
+        }
+
+    }
+}
+
 //  HELPERS
 
 .btn-hibeats{
@@ -151,4 +199,15 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
 .btn-hibeats.active{
     border-top: 2px solid $cor-azul-padrao;
     border-bottom: 2px solid $cor-azul-padrao;
+}
+
+.btn-favorite{
+    outline: none !important;
+    background: $cor-azul-padrao;
+    color: $cor-branca;
+    transition: all ease 0.4s;
+    &:hover{
+        background: darken($cor-azul-padrao, 10%);
+        color:$cor-branca;
+    }
 }
