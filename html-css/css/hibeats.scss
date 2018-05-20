@@ -19,6 +19,16 @@ h1, h2, h3, h4, p, span, a{
     overflow:hidden;
     color:$cor-branca;
     min-height:768px;
+
+    .logo{
+        width:175px;
+        height:60px;
+        float: left;
+        background-image: url('../img/logo.png');
+        background-repeat:no-repeat;
+        margin:20px auto;
+    }
+
     ul{
         margin:0; padding:0;
         li{
