@@ -6,7 +6,7 @@ const Lista = ({ lista }) => (
     <div key={item.id}>
       {
             item.images.length > 0 &&
-            <img src={item.images[0].url} className="result-list-img" />
+            <img alt="" src={item.images[0].url} className="result-list-img" />
         }
       <p> {item.name} </p>
     </div>

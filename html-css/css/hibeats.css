@@ -1,0 +1,133 @@
+body {
+  background: #333;
+}
+
+h1, h2, h3, h4, p, span, a {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.dash-menu {
+  background: #00a4da;
+  overflow: hidden;
+  color: white;
+  min-height: 768px;
+}
+
+.form-control--hibeats {
+  margin-top: 15px;
+  background: black;
+  color: white;
+  font-size: 2em;
+  padding: 28px;
+  border-color: #333;
+}
+
+ul.result-list {
+  margin: 0;
+  padding: 10px;
+}
+ul.result-list li {
+  float: left;
+  width: 100%;
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #4d4d4d;
+}
+ul.result-list li:hover {
+  background: #00a4da;
+}
+ul.result-list li:hover .item-info, ul.result-list li:hover .popularity {
+  color: white;
+}
+ul.result-list li:hover .popularity {
+  border: 1px solid white;
+}
+ul.result-list li img {
+  width: 100px;
+  float: left;
+}
+ul.result-list li .item-info {
+  width: 40%;
+  float: left;
+  color: white;
+  padding-left: 10px;
+}
+ul.result-list li .item-info h3 {
+  margin: 20px 0 0 0;
+}
+ul.result-list li .popularity {
+  width: 150px;
+  float: right;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 1.2em;
+  margin: 30px 15px 15px 15px;
+  text-align: center;
+  border: 1px solid white;
+  color: white;
+}
+
+ul.result-list.result-list--album li img, ul.result-list.result-list--track li img {
+  border-radius: 0;
+}
+
+.album-detail {
+  margin: 20px auto;
+  padding: 15px;
+}
+.album-detail h2 {
+  color: white;
+}
+.album-detail .album-info {
+  float: left;
+}
+.album-detail .album-info img {
+  width: 320px;
+  float: left;
+  margin-bottom: 10px;
+}
+.album-detail .album-info h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 0px;
+}
+.album-detail .album-info p {
+  color: white;
+  text-align: center;
+}
+.album-detail ul.track-list {
+  width: 500px;
+  float: left;
+  padding-left: 10px;
+}
+.album-detail ul.track-list li {
+  width: 100%;
+  list-style: none;
+  font-size: 1em;
+  padding: 5px;
+  color: white;
+  margin-bottom: 5px;
+}
+.album-detail ul.track-list li:hover {
+  background: #00a4da;
+  color: white;
+}
+
+.btn-hibeats {
+  outline: none !important;
+  background: transparent;
+  color: white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+.btn-hibeats:hover {
+  color: #00a4da;
+}
+.btn-hibeats:focus {
+  color: white;
+}
+
+.btn-hibeats.active {
+  border-top: 2px solid #00a4da;
+  border-bottom: 2px solid #00a4da;
+}

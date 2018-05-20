@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hi Beats . A Spotify Based App</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/hibeats.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 dash-menu">
+                <h1>hiBeats</h1>
+                <nav>
+                    <ul>
+                        <li> Search</li>
+                        <li> Home</li>
+                        <li> Favoritos</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <input class="form-control form-control--hibeats" placeholder="Search.." />
+                </div>
+                <button class="btn btn-hibeats active"> Artistas </button>
+                <button class="btn btn-hibeats"> Albuns </button>
+                <button class="btn btn-hibeats"> Tracks </button>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Lista space</h3>
+                        <ul class="result-list">
+                        
+
+                            <!-- ARTISTA -->
+                            <li>
+                                <img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/3/3e/Black_ice_red.jpg" alt="">
+                                <div class="item-info">
+                                    <h3>Nome do Artista</h3>
+                                    <p>Rock, Metal, Hardcore <label for="">Cool</label></p>
+                                </div>
+                                <div class="popularity hot"> <i class="fa fa-thermometer-full" aria-hidden="true"></i> Hot </div>
+                            </li>
+                            <!-- / ARTISTA -->
+
+                            <!-- ARTISTA -->
+                            <li>
+                                <img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/3/3e/Black_ice_red.jpg" alt="">
+                                <div class="item-info">
+                                    <h3>Nome do Artista</h3>
+                                    <p>Rock, Metal, Hardcore <label for="">Cool</label></p>
+                                </div>
+                                <div class="popularity cool"> <i class="fa fa-heart" aria-hidden="true"></i>  Cool </div>
+                            </li>
+                            <!-- / ARTISTA -->
+
+                            <!-- ARTISTA -->
+                            <li>
+                                <img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/3/3e/Black_ice_red.jpg" alt="">
+                                <div class="item-info">
+                                    <h3>Nome do Artista</h3>
+                                    <p>Rock, Metal, Hardcore <label for="">Cool</label></p>
+                                </div>
+                                <div class="popularity regular"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Regular </div>
+                            </li>
+                            <!-- / ARTISTA -->
+                            
+                            <!-- ARTISTA -->
+                            <li>
+                                <img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/3/3e/Black_ice_red.jpg" alt="">
+                                <div class="item-info">
+                                    <h3>Nome do Artista</h3>
+                                    <p>Rock, Metal, Hardcore <label for="">Cool</label></p>
+                                </div>
+                                <div class="popularity hot"> <i class="fa fa-meh-o" aria-hidden="true"></i> Underground </div>
+                            </li>
+                            <!-- / ARTISTA -->
+                        </ul>
+
+                        <ul class="result-list result-list--album">
+                            <!-- ALBUM -->
+                            <li>
+                                <img class="img-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr6GqFzLgE4nI7HX5mclX1XDPxwZJgno1tDW0WCOm2QM6GKtE4" alt="">
+                                <div class="item-info">
+                                    <h3>Californication</h3>
+                                    <p>Red Hot Chili Peppers</p>
+                                </div>
+                            </li>
+                            <!-- / ALBUM -->
+                        </ul>
+
+                        <ul class="result-list result-list--track">
+                            <!-- TRACK -->
+                            <li>
+                                <img class="img-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr6GqFzLgE4nI7HX5mclX1XDPxwZJgno1tDW0WCOm2QM6GKtE4" alt="">
+                                <div class="item-info">
+                                    <h3>Scar Tissue</h3>
+                                    <p>Red Hot Chili Peppers - Californication (2000) - 2:30</p>
+                                </div>
+                            </li>
+                            <!-- / TRACK -->
+                        </ul>
+                        
+                        <div class="album-detail">
+                            <h2>Album details</h2>
+                            <div class="album-info">
+                                <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr6GqFzLgE4nI7HX5mclX1XDPxwZJgno1tDW0WCOm2QM6GKtE4" />
+                                <h2>Californication</h2>
+                                <p>Red Hot Chili Peppers</p>
+                            </div>
+
+                            <ul class="track-list">
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Around The World</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Parallel Universe</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Scar Tissue</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Otherside</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Get On Top</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Californication</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Easily</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Porcelain</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Emit Remmus</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> I Like Dirt</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Thes Velvet Glove</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Savior</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Purple Stain</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Right On Time</li>
+                                <li><i class="fa fa-music" aria-hidden="true"></i> Road Trippin'</li>
+                            </ul>
+                        </div>
+                    </div> <!-- / col-md-12 -->
+                </div> <!-- /row -->
+            
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+
+$cor-preta: #333;
+$cor-branca: white;
+$cor-vermelha-hot: #af3535;
+$cor-amarelo-regular: gold;
+$cor-roxa-cool:#ad61b9;
+$cor-azul-padrao: #00a4da;
+body{
+    background: $cor-preta;
+}
+
+h1, h2, h3, h4, p, span, a{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.dash-menu{
+    background:$cor-azul-padrao;
+    overflow:hidden;
+    color:$cor-branca;
+    min-height:768px;
+}
+
+
+.form-control--hibeats{
+    margin-top:15px;
+    background: darken($cor-preta, 20%);
+    color:$cor-branca;
+    font-size:2em;
+    padding:28px;
+    border-color: $cor-preta;
+}
+ 
+
+ul.result-list{
+    margin:0; 
+    padding:10px;
+    li{
+        float:left;
+        width:100%;
+        list-style: none;
+        padding: 10px;
+        border-bottom: 1px solid lighten($cor-preta, 10%);
+        &:hover{
+            background:$cor-azul-padrao;
+            .item-info, .popularity{
+                color:$cor-branca;
+            }
+
+            .popularity{
+                border: 1px solid $cor-branca;
+            }
+            
+        }
+        img{
+            width:100px;
+            float: left;
+        }
+        .item-info{
+            width:40%;
+            float:left;
+            color:$cor-branca;
+            padding-left:10px;
+            h3{
+                margin:20px 0 0 0;
+            }
+        }
+
+        .popularity{
+            width:150px;
+            float:right;
+            padding:8px;
+            border-radius: 4px;
+            font-size: 1.2em;
+            margin:30px 15px 15px 15px;
+            text-align: center;
+            border: 1px solid $cor-branca;
+            color:$cor-branca;
+        }
+        
+        // .hot, .hot i{ color: $cor-vermelha-hot}
+        // .cool, .cool i {color: $cor-roxa-cool}
+        // .regular, .regular i {color: $cor-amarelo-regular}
+    }
+}
+
+ul.result-list.result-list--album, ul.result-list.result-list--track{
+    li{
+        img{
+            border-radius: 0;
+        }
+    }
+}
+
+.album-detail{
+    margin:20px auto;
+    padding:15px;
+    h2{
+        color:$cor-branca;
+    }
+    .album-info{
+        float: left;
+        img{
+            width:320px;
+            float:left;
+            margin-bottom: 10px;
+        }
+        h2{
+            color:$cor-branca;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+        p{color:$cor-branca; text-align:center;}
+    }
+
+    ul.track-list{
+        width:500px;
+        float: left;
+        padding-left: 10px;
+        li{
+            width:100%;
+            list-style:none;
+            font-size: 1em;
+            padding:5px;
+            color:$cor-branca;
+            margin-bottom: 5px;
+            &:hover{
+                background:$cor-azul-padrao;
+                color:$cor-branca;
+            }
+        }
+    }
+
+}
+
+//  HELPERS
+
+.btn-hibeats{
+    outline: none !important;
+    background: transparent;
+    color:$cor-branca;
+    border-top: 2px solid $cor-branca;
+    border-bottom: 2px solid $cor-branca;
+    &:hover {
+        color:$cor-azul-padrao;
+    }
+    &:focus{
+        color: $cor-branca;
+    }
+}
+
+.btn-hibeats.active{
+    border-top: 2px solid $cor-azul-padrao;
+    border-bottom: 2px solid $cor-azul-padrao;
+}
