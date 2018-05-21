@@ -6,6 +6,18 @@ h1, h2, h3, h4, p, span, a {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.login-box {
+  background: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 100px !important;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.login-box h1 {
+  text-align: center;
+  margin: 20px auto;
+}
+
 .dash-menu {
   background: #3584cd;
   overflow: hidden;
@@ -162,6 +174,11 @@ ul.result-list.result-list--album li img, ul.result-list.result-list--track li i
 .artist-detail .result-list.result-list--album li .item-info h3 {
   margin-top: 8px;
   text-align: center;
+}
+
+.col-center {
+  float: none;
+  margin: auto;
 }
 
 .btn-hibeats {
