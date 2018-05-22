@@ -39,6 +39,7 @@ export default class App extends Component {
   }
 
   isLogged(token) {
+    console.log(token);
     const request = new Request('https://api.spotify.com/v1/me', {
       headers: new Headers({
         Authorization: `Bearer ${token}`,
