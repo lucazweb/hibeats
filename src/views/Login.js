@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import SpotifyLogo from '../img/spotify.svg';
 export default class Login extends Component {
   constructor() {
     super();
@@ -17,7 +17,7 @@ export default class Login extends Component {
           <div className="row">
             <div className="col-md-4 col-center login-box">
               <h1>hiBeats</h1>
-              <button onClick={this.logar} className="btn btn-success btn-lg btn-block"> Entrar com Spotify</button>
+              <button onClick={this.logar} className="btn btn-success btn-login-spotify btn-lg btn-block">  <span><SpotifyLogo width={30} /> Entrar com Spotify </span></button>
               <p className="text-center">
                 <a>Entrar com minha conta HiBeats</a>
               </p>

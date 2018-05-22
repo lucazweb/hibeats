@@ -58,12 +58,17 @@ h1, h2, h3, h4, p, span, a{
 
 
 .form-control--hibeats{
+    outline: none !important;
     margin-top:15px;
     background: darken($cor-preta, 20%);
     color:$cor-branca;
-    font-size:2em;
-    padding:28px;
+    font-size:1.8em;
+    padding:10px;
     border-color: $cor-preta;
+    &:focus{
+        background: darken($cor-preta, 10%);
+        color:$cor-azul-padrao;
+    }
 }
  
 
@@ -113,7 +118,7 @@ ul.result-list{
             color:$cor-branca;
         }
         
-        // .hot, .hot i{ color: $cor-vermelha-hot}
+        .hot, .hot i{ color: $cor-vermelha-hot}
         // .cool, .cool i {color: $cor-roxa-cool}
         // .regular, .regular i {color: $cor-amarelo-regular}
     }
@@ -216,6 +221,7 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
     color:$cor-branca;
     border-top: 2px solid $cor-branca;
     border-bottom: 2px solid $cor-branca;
+    margin: 5px;
     &:hover {
         color:$cor-azul-padrao;
     }
@@ -237,5 +243,18 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
     &:hover{
         background: darken($cor-azul-padrao, 10%);
         color:$cor-branca;
+    }
+}
+
+.btn-login-spotify{
+    span{
+        padding-left:10px;
+        margin-top:-10px;
+        display: inline-block;
+    }
+    svg{
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
     }
 }

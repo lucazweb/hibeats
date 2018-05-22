@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -14,7 +15,7 @@ const Sidebar = () => (
         <ul>
             <li> <FontAwesomeIcon icon={faSearch} /> Search</li>
             <li> <FontAwesomeIcon icon={faHome} />  Home</li>
-            <li> <FontAwesomeIcon icon={faStar} />  Favoritos</li>
+            <li> <Link to='/favoritos'><FontAwesomeIcon icon={faStar} />  Favoritos </Link></li>
             <li> <FontAwesomeIcon icon={faSignOutAlt} /> Sair</li>
           </ul>
       </nav>
