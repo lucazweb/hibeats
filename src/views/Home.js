@@ -1,13 +1,4 @@
 import React, { Component } from 'react';
-import fontawesome from '@fortawesome/fontawesome';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-
-import faStar from '@fortawesome/fontawesome-free-solid/faStar';
-import faFire from '@fortawesome/fontawesome-free-solid/faFire';
-import faThumbsUp from '@fortawesome/fontawesome-free-solid/faThumbsUp';
-import faHearth from '@fortawesome/fontawesome-free-solid/faHeart';
-import faMeh from '@fortawesome/fontawesome-free-solid/faMeh';
-
 import Sidebar from '../components/Sidebar';
 import AlbumDetail from '../components/AlbumDetail';
 import ArtistDetail from '../components/ArtistDetail';
@@ -19,6 +10,11 @@ export default class Login extends Component {
   constructor() {
     super();
     this.state = {};
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch() {
+    console.log(this.keyword.value);
   }
 
   render() {
@@ -27,8 +23,9 @@ export default class Login extends Component {
         <div className="row">
           <Sidebar />
           <div className="col-md-10">
+
             <div className="form-group">
-              <input className="form-control form-control--hibeats" placeholder="Search.." />
+              <input onChange={this.handleSearch} ref={(input) => this.keyword = input} className="form-control form-control--hibeats" placeholder="Search.." />
             </div>
 
             <FiltrosCategoria />
