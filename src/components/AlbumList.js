@@ -1,15 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const AlbumList = () => (
+const AlbumList = ({ lista }) => (
   <ul className="result-list result-list--album">
-    <li>
-      <img className="img-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr6GqFzLgE4nI7HX5mclX1XDPxwZJgno1tDW0WCOm2QM6GKtE4" alt="" />
-      <div className="item-info">
-        <h3>Californication</h3>
-        <p>Red Hot Chili Peppers</p>
-      </div>
-    </li>
+    {
+       lista.map(item => (
+        <li key={item.id}>
+          {
+            item.images.length > 0 && <img className="img-circle" src={item.images[0].url} alt="" />
+          }
+
+          <div className="item-info">
+            <h3>{item.name}</h3>
+            <p>Red Hot Chili Peppers</p>
+          </div>
+        </li>
+      ))
+    }
+
   </ul>
 );
+
+AlbumList.PropTypes = {
+  lista: PropTypes.array,
+};
 
 export default AlbumList;

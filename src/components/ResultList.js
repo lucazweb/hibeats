@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-import faStar from '@fortawesome/fontawesome-free-solid/faStar';
 import faFire from '@fortawesome/fontawesome-free-solid/faFire';
 import faThumbsUp from '@fortawesome/fontawesome-free-solid/faThumbsUp';
 import faHearth from '@fortawesome/fontawesome-free-solid/faHeart';
@@ -15,17 +14,43 @@ export default class ResultList extends Component {
     this.state = { lista: [] };
   }
 
+  componentDidMount() {
+    console.log('componente lista', this.props.lista);
+  }
+
+  artistPopularity(num) {
+    if(num < 30){
+      console.log(num, 'Underground');
+    }
+  }
+
   render() {
     return (
+
       <ul className="result-list">
-        <li>
-          <img className="img-circle" src="https://upload.wikimedia.org/wikipedia/en/3/3e/Black_ice_red.jpg" alt="" />
-          <div className="item-info">
-            <h3>Nome do Artista</h3>
-            <p>Rock, Metal, Hardcore <label>Cool</label></p>
-          </div>
-          <div className="popularity hot"> <FontAwesomeIcon icon={faFire} /> Hot </div>
-        </li>
+        {
+          this.props.lista.map(item => (
+            <li key={item.id}>
+              {
+               item.images.length > 0 && <img className="img-circle" src={item.images[0].url} alt="" />
+              }
+              <div className="item-info">
+                <h3>{item.name}</h3>
+                <p>
+                  {
+                    item.genres.map(genre => (
+                      <span key={genre}>{genre}</span>
+                    ))
+                  }
+                </p>
+              </div>
+              <div className="popularity hot">
+                <FontAwesomeIcon icon={faFire} /> Hot
+              </div>
+            </li>
+            ))
+        }
+
       </ul>
     );
   }

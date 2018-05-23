@@ -12,13 +12,13 @@ const Sidebar = () => (
   <div className="col-md-2 dash-menu">
     <div className="logo" />
     <nav>
-        <ul>
-            <li> <FontAwesomeIcon icon={faSearch} /> Search</li>
-            <li> <FontAwesomeIcon icon={faHome} />  Home</li>
-            <li> <Link to='/favoritos'><FontAwesomeIcon icon={faStar} />  Favoritos </Link></li>
-            <li> <FontAwesomeIcon icon={faSignOutAlt} /> Sair</li>
-          </ul>
-      </nav>
+      <ul>
+        <li> <FontAwesomeIcon icon={faSearch} /> Search</li>
+        <li> <FontAwesomeIcon icon={faHome} />  Home</li>
+        <li> <Link to="/favoritos"><FontAwesomeIcon icon={faStar} />  Favoritos </Link></li>
+        <li> <FontAwesomeIcon icon={faSignOutAlt} /> Sair</li>
+      </ul>
+    </nav>
   </div>
 );
 
