@@ -77,14 +77,18 @@ ul.result-list{
     padding:10px;
     li{
         float:left;
-        width:100%;
+        width:48%;
+        margin:1%;
+        height:140px;
         list-style: none;
-        padding: 10px;
+        padding: 15px;
         border-bottom: 1px solid lighten($cor-preta, 10%);
+        transition: ease 0.2s;
+        cursor: pointer;
         &:hover{
             background:$cor-azul-padrao;
-            .item-info, .popularity{
-                color:$cor-branca;
+            .item-info, p > span, .popularity{
+                color:$cor-branca !important;
             }
 
             .popularity{
@@ -92,9 +96,13 @@ ul.result-list{
             }
 
         }
-        img{
-            width:100px;
+        .img{
+            width:110px;
+            height:110px;
+            background-size:cover;
+            background-repeat: no-repeat;
             float: left;
+            border-radius: 100px;
         }
         .item-info{
             width:40%;
@@ -102,8 +110,14 @@ ul.result-list{
             color:$cor-branca;
             padding-left:10px;
             h3{
-                margin:20px 0 0 0;
+                margin:0;
+                font-size: 1.5em;
             }
+            p{
+              line-height: 18px;
+              span{ font-style: italic; color: lighten($cor-preta, 30%); }
+            }
+
         }
 
         .popularity{
@@ -119,15 +133,15 @@ ul.result-list{
         }
 
         .hot, .hot i{ color: $cor-vermelha-hot}
-        // .cool, .cool i {color: $cor-roxa-cool}
-        // .regular, .regular i {color: $cor-amarelo-regular}
+        .cool, .cool i {color: $cor-roxa-cool}
+        .regular, .regular i {color: $cor-amarelo-regular}
     }
 }
 
 ul.result-list.result-list--album, ul.result-list.result-list--track{
     li{
-        img{
-            border-radius: 0;
+        .img{
+            border-radius: 0 !important;
         }
     }
 }
@@ -198,7 +212,7 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
                 width: 100%;
                 padding-left: 0px;
                 h3{
-                    margin-top:8px;
+                    margin-top:0px;
                     text-align: center;
                 }
             }

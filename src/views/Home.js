@@ -4,7 +4,7 @@ import PubSub from 'pubsub-js';
 import Sidebar from '../components/Sidebar';
 import AlbumList from '../components/AlbumList';
 import AlbumDetail from '../components/AlbumDetail';
-import ResultList from '../components/ResultList';
+import ArtistsList from '../components/ArtistsList';
 import ArtistDetail from '../components/ArtistDetail';
 import TrackList from '../components/TrackList';
 
@@ -12,8 +12,8 @@ export default class Login extends Component {
   constructor() {
     super();
     this.token = sessionStorage.getItem('x-access-token');
-    this.filtro = 'track';
-    this.state = {lista: [], filtro: 'artist'};
+    this.filtro = 'artist';
+    this.state = { lista: [], filtro: 'artist' };
     this.handleSearch = this.handleSearch.bind(this);
     this.toggleFilters = this.toggleFilters.bind(this);
   }
@@ -21,6 +21,7 @@ export default class Login extends Component {
   toggleFilters(evt) {
     this.setState({ filtro: evt.target.name });
     this.filtro = evt.target.name;
+    this.setState({ lista: [] });
     $('.btn-filtro').removeClass('active');
     $(evt.target).addClass('active');
     this.handleSearch();
@@ -64,7 +65,7 @@ export default class Login extends Component {
               <div className="col-md-12">
 
                 {
-                  this.filtro === 'artist' && <ResultList lista={this.state.lista} />
+                  this.filtro === 'artist' && <ArtistsList lista={this.state.lista} />
                 }
 
                 {

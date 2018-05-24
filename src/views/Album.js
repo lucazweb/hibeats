@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import AlbumDetail from '../components/AlbumDetail';
 import Sidebar from '../components/Sidebar';
 import fontawesome from '@fortawesome/fontawesome';
@@ -10,9 +10,10 @@ import faStar from '@fortawesome/fontawesome-free-solid/faStar';
 export default class Album extends Component {
   constructor() {
     super();
-    this.album = {};
-    this.tracks = [];
     this.token = sessionStorage.getItem('x-access-token');
+    this.images = [];
+    this.tracks = [];
+    this.addAsFavorite = this.addAsFavorite.bind(this);
     this.state = { album: '' };
   }
 
@@ -27,37 +28,67 @@ export default class Album extends Component {
     fetch(request)
       .then(response => response.json())
       .then((data) => {
+        // Tive um contratempo ao tentar acessas os arrays do obj diretamente do render()
+        // --> Error: Objects are not valid as a React child"
+        // Passando elementos para um array criado ao iniciar o componente;
         console.log(data);
-        console.log(data.tracks.items);
-        this.album = data;
-        this.setState({ album: data });
-        this.tracks = this.state.album.tracks.items;
+        data.images.map((img) => {
+          this.images.push(img.url);
+        });
 
+        data.tracks.items.map((track, index) => {
+          this.tracks.push({
+            key: index,
+            name: track.name,
+          });
+        });
+
+        this.setState({ album: data });
       });
+  };
+
+  /* !!!!! Implementar direito */
+  addAsFavorite(){
+    let favorites = localStorage.getItem('hibeats-favorites');
+    let album = {
+      id: this.state.album.id,
+      name: this.state.album.name,
+      image: this.state.album.images[0].url,
+    };
+    if(favorites !== null){
+      favorites.push(album);
+    }else{
+      localStorage.setItem('hibeats-favorites', JSON.stringify(album));
+    }
   }
 
   render() {
     return (
-      <Fragment>
+
         <div className="row">
           <Sidebar />
           <div className="col-md-10">
             <div className="album-detail">
-              <h2>{this.album.name}</h2>
+              <h2>{this.state.album.name} </h2>
               <div className="album-info">
-                <img alt="" className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr6GqFzLgE4nI7HX5mclX1XDPxwZJgno1tDW0WCOm2QM6GKtE4" />
+                <img alt="" className="img" src={this.images[0]} />
                 <h2>Californication</h2>
                 <p>Red Hot Chili Peppers</p>
-                <button className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                <button onClick={this.addAsFavorite} className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
               </div>
 
               <ul className="track-list">
-                <li><FontAwesomeIcon icon={faMusic} /> Track name  </li>
+                {
+                  this.tracks.map(track => (
+                    <li key={track.key}> <FontAwesomeIcon icon={faMusic} /> {track.name}  </li>
+                  ))
+                }
+
               </ul>
             </div>
           </div>
         </div>
-      </Fragment>
+
     );
   }
 }

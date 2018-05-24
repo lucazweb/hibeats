@@ -7,11 +7,11 @@ const TrackList = ({ lista }) => (
     lista.map(item => (
       <li>
         {
-          item.album.images.length > 0 && <img className="img-circle" src={item.album.images[0].url} alt="" />
+          item.album.images.length > 0 && <div className="img img-track" style={{ backgroundImage: 'url(' + item.album.images[0].url  + ')' }} alt="" />
         }
 
         <div className="item-info">
-          <h3>{item.name}</h3>
+          <h3>{item.name} -  {item.album.name}</h3>
           <p> {item.artists[0].name} - 2:30</p>
         </div>
       </li>
