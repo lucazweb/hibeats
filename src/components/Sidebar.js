@@ -7,6 +7,7 @@ import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
 import faStar from '@fortawesome/fontawesome-free-solid/faStar';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import faHome from '@fortawesome/fontawesome-free-solid/faHome';
+import logo from '../img/logo.png';
 
 const Sidebar = () => (
   <div className="col-md-2 dash-menu">

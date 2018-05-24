@@ -75,37 +75,41 @@ export default class Album extends Component {
 
   render() {
     return (
-
+      <div className="container-fluid">
         <div className="row">
           <Sidebar />
           <div className="col-md-10">
             <div className="album-detail">
               <h2>{this.state.album.name} </h2>
-              <div className="album-info">
-                <img alt="" className="img" src={this.images[0]} />
-                <p>
-                {
-                  this.artists.map(artist => (
-                    <span key={artist.key}>{artist.name}, </span>
-                  ))
-                }
-                </p>
+              <div className="row">
+              <div className="col-md-4 no-padding">
+                <div className="album-info">
+                  <img alt="" className="img" src={this.images[0]} />
+                  <p>
+                  {
+                    this.artists.map(artist => (
+                      <span key={artist.key}>{artist.name}, </span>
+                    ))
+                  }
+                  </p>
 
-                <button onClick={this.addAsFavorite} className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                  <button onClick={this.addAsFavorite} className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                </div>
               </div>
-
-              <ul className="track-list">
-                {
-                  this.tracks.map(track => (
-                    <li key={track.key}> <FontAwesomeIcon icon={faMusic} /> {track.name}  </li>
-                  ))
-                }
-
-              </ul>
+              <div className="col-md-8">
+                <ul className="track-list">
+                  {
+                    this.tracks.map(track => (
+                      <li key={track.key}> <FontAwesomeIcon icon={faMusic} /> {track.name}  </li>
+                    ))
+                  }
+                </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
+      </div>
     );
   }
 }

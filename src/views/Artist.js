@@ -45,36 +45,36 @@ export default class Album extends Component {
 
   render() {
     return (
+      <div className="container-fluid">
+        <div className="row">
+          <Sidebar />
+          <div className="col-md-10">
+              <div className="artist-detail">
+                <h2>{this.state.artist.name}</h2>
+                <div className="favorite-ctrl">
+                  <button className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                </div>
+                <ul className="result-list result-list--album">
+                  {
+                  this.state.artistAlbums.map(album => (
+                    <Link to={`/album/${album.id}`}>
+                    <li>
+                      {
+                        album.images.length > 0 && <img className="img-circle" src={album.images[0].url} alt="" />
+                      }
+                      <div className="item-info">
+                        <h3>{album.name}</h3>
+                      </div>
+                    </li>
+                    </Link>
+                  ))
+                }
 
-      <div className="row">
-        <Sidebar />
-        <div className="col-md-10">
-            <div className="artist-detail">
-              <h2>{this.state.artist.name}</h2>
-              <div className="favorite-ctrl">
-                <button className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                </ul>
               </div>
-              <ul className="result-list result-list--album">
-                {
-                this.state.artistAlbums.map(album => (
-                  <Link to={`/album/${album.id}`}>
-                  <li>
-                    {
-                      album.images.length > 0 && <img className="img-circle" src={album.images[0].url} alt="" />
-                    }
-                    <div className="item-info">
-                      <h3>{album.name}</h3>
-                    </div>
-                  </li>
-                  </Link>
-                ))
-              }
-
-              </ul>
             </div>
-          </div>
+        </div>
       </div>
-
     );
   }
 }
