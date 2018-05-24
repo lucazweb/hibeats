@@ -41,6 +41,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(pdf|jpg|png|gif|ico)$/,
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
+      },
     ],
   },
   devServer: {

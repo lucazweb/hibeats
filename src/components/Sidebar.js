@@ -11,7 +11,7 @@ import logo from '../img/logo.png';
 
 const Sidebar = () => (
   <div className="col-md-2 dash-menu">
-    <div className="logo" />
+    <div style={{backgroundImage: 'url(' + logo + ')'}} className="logo" />
     <nav>
       <ul>
         <li> <FontAwesomeIcon icon={faSearch} /> Search</li>
