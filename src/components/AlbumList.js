@@ -7,17 +7,30 @@ const AlbumList = ({ lista }) => (
     {
        lista.map(item => (
          <Link to={`/album/${item.id}`}>
-        <li key={item.id}>
+           <li key={item.id}>
+
           {
-            item.images.length > 0 && <img className="img-circle" src={item.images[0].url} alt="" />
+            item.images.length > 0 && <div className="img img-track" style={{ backgroundImage: `url(${  item.images[0].url   })` }} alt="" />
           }
 
           <div className="item-info">
             <h3>{item.name}</h3>
-            <p>Red Hot Chili Peppers</p>
+
+            <p>
+              {
+              item.artists.length > 3 ? 'Various artists' :
+              (<span>
+                {
+                  item.artists.map((artist, index) => (
+                      <span>{ artist.name }, </span>
+                    ),)
+                }
+              </span>)
+            }
+            </p>
           </div>
         </li>
-        </Link>
+         </Link>
       ))
     }
 
