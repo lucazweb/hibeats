@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
@@ -12,10 +13,7 @@ export default class ArtistsList extends Component {
   constructor() {
     super();
     this.state = { lista: [] };
-  }
 
-  componentDidMount() {
-    console.log('componente lista', this.props.lista);
   }
 
   artistPopularity(num) {
@@ -49,8 +47,10 @@ export default class ArtistsList extends Component {
     return (
 
       <ul className="result-list">
+
         {
           this.props.lista.map(item => (
+            <Link to={`/artist/${item.id}`}>
             <li key={item.id}>
               {
                item.images.length > 0 && <div className="img" style={{ backgroundImage: 'url(' + item.images[0].url  + ')' }} alt="" />
@@ -66,13 +66,12 @@ export default class ArtistsList extends Component {
                   }
                 </p>
               </div>
-
-
               {
                 this.artistPopularity(item.popularity)
               }
 
             </li>
+            </Link>
             ))
         }
 

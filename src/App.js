@@ -6,6 +6,7 @@ import Login from './views/Login';
 import Home from './views/Home';
 import Favoritos from './views/Favoritos';
 import Album from './views/Album';
+import Artist from './views/Artist';
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -72,6 +73,7 @@ export default class App extends Component {
         <Route path="/home" render={() => (this.state.isLogged ? <Home /> : <Redirect to="/" />)} />
         <Route exact path="/favoritos" component={Favoritos} />
         <Route exact path="/album/:id" component={Album} />
+        <Route exact path="/artist/:id" component={Artist} />
       </Switch>
     );
   }

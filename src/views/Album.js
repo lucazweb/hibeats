@@ -13,6 +13,7 @@ export default class Album extends Component {
     this.token = sessionStorage.getItem('x-access-token');
     this.images = [];
     this.tracks = [];
+    this.artists = [];
     this.addAsFavorite = this.addAsFavorite.bind(this);
     this.state = { album: '' };
   }
@@ -32,8 +33,16 @@ export default class Album extends Component {
         // --> Error: Objects are not valid as a React child"
         // Passando elementos para um array criado ao iniciar o componente;
         console.log(data);
+
         data.images.map((img) => {
           this.images.push(img.url);
+        });
+
+        data.artists.map((artist, index) => {
+          this.artists.push({
+            key: index,
+            name: artist.name,
+          });
         });
 
         data.tracks.items.map((track, index) => {
@@ -50,11 +59,13 @@ export default class Album extends Component {
   /* !!!!! Implementar direito */
   addAsFavorite(){
     let favorites = localStorage.getItem('hibeats-favorites');
+
     let album = {
       id: this.state.album.id,
       name: this.state.album.name,
       image: this.state.album.images[0].url,
     };
+
     if(favorites !== null){
       favorites.push(album);
     }else{
@@ -72,8 +83,14 @@ export default class Album extends Component {
               <h2>{this.state.album.name} </h2>
               <div className="album-info">
                 <img alt="" className="img" src={this.images[0]} />
-                <h2>Californication</h2>
-                <p>Red Hot Chili Peppers</p>
+                <p>
+                {
+                  this.artists.map(artist => (
+                    <span key={artist.key}>{artist.name}, </span>
+                  ))
+                }
+                </p>
+
                 <button onClick={this.addAsFavorite} className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
               </div>
 

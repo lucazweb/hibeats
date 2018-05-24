@@ -48,6 +48,10 @@ h1, h2, h3, h4, p, span, a{
             float: left;
             width: 100%;
             padding:5px;
+            a{
+              color:$cor-branca;
+              text-decoration: none;
+            }
             &:hover{
                 background: darken($cor-azul-padrao, 20%);
                 cursor: pointer;
@@ -111,7 +115,7 @@ ul.result-list{
             padding-left:10px;
             h3{
                 margin:0;
-                font-size: 1.5em;
+                font-size: 1.4em;
             }
             p{
               line-height: 18px;
@@ -149,8 +153,13 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
 .album-detail{
     margin:20px auto;
     padding:15px;
+    padding-top:5px;
     h2{
-        color:$cor-branca;
+      color:$cor-branca !important;
+      text-align: center;
+      font-size: 3em;
+      margin-top:0px;
+      margin-bottom: 30px;
     }
     .album-info{
         float: left;
@@ -188,7 +197,6 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
 }
 
 .artist-detail{
-    border-top:1px solid $cor-branca;
     h2{
         color:$cor-branca !important;
         text-align: center;
@@ -203,17 +211,29 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
     .result-list.result-list--album{
         li{
             width: 200px;
+            height: 280px;;
             float:left;
+            transition: ease 0.4s;
+            padding:0px;
+            margin:10px;
+            &:hover{
+              background: none;
+              img{
+                opacity: 0.5;
+              }
+            }
             img{
                 width: 100%;
                 margin-bottom: 0;
+                transition: ease 0.4s;
             }
             .item-info{
                 width: 100%;
                 padding-left: 0px;
                 h3{
-                    margin-top:0px;
+                    margin-top:5px;
                     text-align: center;
+                    font-size: 0.9em;
                 }
             }
         }
@@ -271,4 +291,23 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
         float: left;
         margin-right: 10px;
     }
+}
+
+// Animations
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

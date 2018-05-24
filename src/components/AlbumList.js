@@ -9,27 +9,27 @@ const AlbumList = ({ lista }) => (
          <Link to={`/album/${item.id}`}>
            <li key={item.id}>
 
-          {
-            item.images.length > 0 && <div className="img img-track" style={{ backgroundImage: `url(${  item.images[0].url   })` }} alt="" />
+             {
+            item.images.length > 0 && <div className="img img-track" style={{ backgroundImage: `url(${item.images[0].url})` }} alt="" />
           }
 
-          <div className="item-info">
-            <h3>{item.name}</h3>
+             <div className="item-info">
+               <h3>{item.name}</h3>
 
-            <p>
-              {
+               <p>
+                 {
               item.artists.length > 3 ? 'Various artists' :
               (<span>
                 {
                   item.artists.map((artist, index) => (
-                      <span>{ artist.name }, </span>
-                    ),)
+                    <span>{ artist.name }, </span>
+                    ))
                 }
-              </span>)
+               </span>)
             }
-            </p>
-          </div>
-        </li>
+               </p>
+             </div>
+           </li>
          </Link>
       ))
     }
