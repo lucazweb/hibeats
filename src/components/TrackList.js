@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddTrackAsFavorite from '../components/AddTrackAsFavorite';
 
 const TrackList = ({ lista }) => (
   <ul className="result-list result-list--track">
@@ -13,6 +14,7 @@ const TrackList = ({ lista }) => (
         <div className="item-info">
           <h3>{item.name} -  {item.album.name}</h3>
           <p> {item.artists[0].name} - 2:30</p>
+          <AddTrackAsFavorite favorite={lista} cateogory="tracks" />
         </div>
       </li>
     ))

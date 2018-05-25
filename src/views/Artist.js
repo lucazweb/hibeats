@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import AddAsFavorite from '../components/AddAsFavorite';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faStar from '@fortawesome/fontawesome-free-solid/faStar';
@@ -47,10 +48,10 @@ export default class Album extends Component {
         <div className="row">
           <Sidebar />
           <div className="col-md-10">
-              <div className="artist-detail">
+            <div className="artist-detail">
                 <h2>{this.state.artist.name}</h2>
                 <div className="favorite-ctrl">
-                  <button className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                  <AddAsFavorite favorite={this.state.artist} category="artists" />
                 </div>
                 <ul className="result-list result-list--album">
                   {

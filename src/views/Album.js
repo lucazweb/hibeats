@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import AlbumDetail from '../components/AlbumDetail';
 import Sidebar from '../components/Sidebar';
+import AddAsFavorite from '../components/AddAsFavorite';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faMusic from '@fortawesome/fontawesome-free-solid/faMusic';
 import faStar from '@fortawesome/fontawesome-free-solid/faStar';
-
 
 export default class Album extends Component {
   constructor() {
@@ -14,12 +14,10 @@ export default class Album extends Component {
     this.images = [];
     this.tracks = [];
     this.artists = [];
-    this.addAsFavorite = this.addAsFavorite.bind(this);
-    this.state = { album: '' };
+     this.state = { album: '' };
   }
 
   componentDidMount() {
-    console.log(this.props.match.params.id);
     const request = new Request(`https://api.spotify.com/v1/albums/${this.props.match.params.id}`, {
       headers: new Headers({
         Authorization: `Bearer ${this.token}`,
@@ -29,23 +27,22 @@ export default class Album extends Component {
     fetch(request)
       .then(response => response.json())
       .then((data) => {
-        // Tive um contratempo ao tentar acessas os arrays do obj diretamente do render()
-        // --> Error: Objects are not valid as a React child"
-        // Passando elementos para um array criado ao iniciar o componente;
+        /* Tive um contratempo ao tentar acessas os arrays do obj diretamente do render()
+        // "Objects are not valid as a React child"
+        // Passando elementos para um array criado ao iniciar o componente; */
 
-
-        data.images.map((img) => {
+        data.images.forEach((img) => {
           this.images.push(img.url);
         });
 
-        data.artists.map((artist, index) => {
+        data.artists.forEach((artist, index) => {
           this.artists.push({
             key: index,
             name: artist.name,
           });
         });
 
-        data.tracks.items.map((track, index) => {
+        data.tracks.items.forEach((track, index) => {
           this.tracks.push({
             key: index,
             name: track.name,
@@ -54,40 +51,6 @@ export default class Album extends Component {
 
         this.setState({ album: data });
       });
-  }
-
-  /* !!!!! Implementar direito */
-  addAsFavorite = () => {
-    const cat = 'albuns';
-    const album = {
-      id: this.state.album.id,
-      name: this.state.album.name,
-      artist: this.state.album.artists,
-      image: this.state.album.images[0].url,
-    };
-
-    if (localStorage.getItem('hibeats-favorites') !== null) {
-      console.log('Favoritos existe');
-      const favorites = JSON.parse(localStorage.getItem('hibeats-favorites'));
-
-      let count = 0;
-      favorites[`${cat}`].forEach((fav) => {
-        if (fav.id === album.id) {
-          count += count + 1;
-        }
-      });
-
-      if (count !== 0) {
-        console.log('Album já favoritado.');
-      } else {
-        favorites[`${cat}`].push(album);
-        localStorage.setItem('hibeats-favorites', JSON.stringify(favorites));
-      }
-    } else {
-      const model = { artists: [], albuns: [], tracks: [] };
-      model.albuns.push(album);
-      localStorage.setItem('hibeats-favorites', JSON.stringify(model));
-    }
   }
 
   render() {
@@ -103,14 +66,13 @@ export default class Album extends Component {
                   <div className="album-info">
                     <img alt="" className="img" src={this.images[0]} />
                     <p>
-                    {
+                      {
                     this.artists.map(artist => (
                       <span key={artist.key}>{artist.name}, </span>
                     ))
                   }
-                  </p>
-
-                    <button onClick={this.addAsFavorite} className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                    </p>
+                    <AddAsFavorite favorite={this.state.album} category="albuns" />
                   </div>
                 </div>
                 <div className="col-md-8">
