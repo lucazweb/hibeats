@@ -24,9 +24,9 @@ export default class AddTrackAsFavorite extends Component {
       name: this.props.favorite.name,
     };
 
-    if (cat === 'albuns') {
+    if (cat === 'tracks') {
       obj.artist = this.props.favorite.artists;
-      obj.image = this.props.favorite.images[0].url;
+      obj.image = this.props.favorite.album.images[0].url;
     }
 
     if (localStorage.getItem('hibeats-favorites') !== null) {

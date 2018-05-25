@@ -6,7 +6,7 @@ const TrackList = ({ lista }) => (
   <ul className="result-list result-list--track">
     {
     lista.map(item => (
-      <li>
+      <li key={item.id}>
         {
           item.album.images.length > 0 && <div className="img img-track" style={{ backgroundImage: 'url(' + item.album.images[0].url  + ')' }} alt="" />
         }
@@ -14,7 +14,7 @@ const TrackList = ({ lista }) => (
         <div className="item-info">
           <h3>{item.name} -  {item.album.name}</h3>
           <p> {item.artists[0].name} - 2:30</p>
-          <AddTrackAsFavorite favorite={lista} cateogory="tracks" />
+          <AddTrackAsFavorite favorite={item} category="tracks" />
         </div>
       </li>
     ))
