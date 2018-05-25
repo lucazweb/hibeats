@@ -46,7 +46,6 @@ export default class ArtistPopularity extends Component {
         {
           this.artistPopularity(this.props.popularity)
         }
-
      </Fragment>
     )
   }

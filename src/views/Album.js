@@ -14,7 +14,7 @@ export default class Album extends Component {
     this.images = [];
     this.tracks = [];
     this.artists = [];
-     this.state = { album: '' };
+    this.state = { album: '' };
   }
 
   componentDidMount() {

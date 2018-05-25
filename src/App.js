@@ -28,7 +28,7 @@ export default class App extends Component {
     }
   }
 
-  getHashParams = () => {
+  getHashParams(){
     const hashParams = {};
     let e,
       r = /([^&;=]+)=?([^&;]*)/g,

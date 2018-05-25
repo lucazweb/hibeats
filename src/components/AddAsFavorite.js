@@ -10,7 +10,7 @@ export default class AddAsFavorite extends Component {
     this.state = { buttonText: 'Adicionar aos favoritos', doneStyle: {} };
   }
 
-  toggleButtonState = () => {
+  toggleButtonState(){
     this.setState({
       doneStyle: { backgroundColor: '#669966'},
       buttonText: 'Adicionado',

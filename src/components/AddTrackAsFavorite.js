@@ -12,7 +12,7 @@ export default class AddTrackAsFavorite extends Component {
 
   toggleButtonState = () => {
     this.setState({
-      doneStyle: { backgroundColor: 'yellow'},
+      doneStyle: { color: '#eadb24'},
     });
   }
 
