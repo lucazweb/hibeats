@@ -14,6 +14,7 @@ export default class Album extends Component {
   }
 
   componentDidMount() {
+    /* [PARAMETROS RECEBIDOS] */
     console.log(this.props.match.params.id);
 
     const request = new Request(`https://api.spotify.com/v1/artists/${this.props.match.params.id}`, {
@@ -31,17 +32,14 @@ export default class Album extends Component {
     fetch(request)
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
         this.setState({ artist: data });
         fetch(albumRequest)
           .then(response => response.json())
           .then((data) => {
-            console.log(data);
             this.setState({ artistAlbums: data.items });
           });
       });
   }
-
 
   render() {
     return (
@@ -69,7 +67,6 @@ export default class Album extends Component {
                     </Link>
                   ))
                 }
-
                 </ul>
               </div>
             </div>

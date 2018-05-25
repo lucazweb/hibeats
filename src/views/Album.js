@@ -32,7 +32,7 @@ export default class Album extends Component {
         // Tive um contratempo ao tentar acessas os arrays do obj diretamente do render()
         // --> Error: Objects are not valid as a React child"
         // Passando elementos para um array criado ao iniciar o componente;
-        console.log(data);
+
 
         data.images.map((img) => {
           this.images.push(img.url);
@@ -54,22 +54,39 @@ export default class Album extends Component {
 
         this.setState({ album: data });
       });
-  };
+  }
 
   /* !!!!! Implementar direito */
-  addAsFavorite(){
-    let favorites = localStorage.getItem('hibeats-favorites');
-
-    let album = {
+  addAsFavorite = () => {
+    const cat = 'albuns';
+    const album = {
       id: this.state.album.id,
       name: this.state.album.name,
+      artist: this.state.album.artists,
       image: this.state.album.images[0].url,
     };
 
-    if(favorites !== null){
-      favorites.push(album);
-    }else{
-      localStorage.setItem('hibeats-favorites', JSON.stringify(album));
+    if (localStorage.getItem('hibeats-favorites') !== null) {
+      console.log('Favoritos existe');
+      const favorites = JSON.parse(localStorage.getItem('hibeats-favorites'));
+
+      let count = 0;
+      favorites[`${cat}`].forEach((fav) => {
+        if (fav.id === album.id) {
+          count += count + 1;
+        }
+      });
+
+      if (count !== 0) {
+        console.log('Album já favoritado.');
+      } else {
+        favorites[`${cat}`].push(album);
+        localStorage.setItem('hibeats-favorites', JSON.stringify(favorites));
+      }
+    } else {
+      const model = { artists: [], albuns: [], tracks: [] };
+      model.albuns.push(album);
+      localStorage.setItem('hibeats-favorites', JSON.stringify(model));
     }
   }
 
@@ -82,28 +99,28 @@ export default class Album extends Component {
             <div className="album-detail">
               <h2>{this.state.album.name} </h2>
               <div className="row">
-              <div className="col-md-4 no-padding">
-                <div className="album-info">
-                  <img alt="" className="img" src={this.images[0]} />
-                  <p>
-                  {
+                <div className="col-md-4 no-padding">
+                  <div className="album-info">
+                    <img alt="" className="img" src={this.images[0]} />
+                    <p>
+                    {
                     this.artists.map(artist => (
                       <span key={artist.key}>{artist.name}, </span>
                     ))
                   }
                   </p>
 
-                  <button onClick={this.addAsFavorite} className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                    <button onClick={this.addAsFavorite} className="btn btn-block btn-favorite"> <FontAwesomeIcon icon={faStar} /> Adicionar aos favoritos</button>
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-8">
-                <ul className="track-list">
-                  {
+                <div className="col-md-8">
+                  <ul className="track-list">
+                    {
                     this.tracks.map(track => (
                       <li key={track.key}> <FontAwesomeIcon icon={faMusic} /> {track.name}  </li>
                     ))
                   }
-                </ul>
+                  </ul>
                 </div>
               </div>
             </div>

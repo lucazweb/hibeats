@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import PubSub from 'pubsub-js';
 import Sidebar from '../components/Sidebar';
 import AlbumList from '../components/AlbumList';
-import AlbumDetail from '../components/AlbumDetail';
 import ArtistsList from '../components/ArtistsList';
-import ArtistDetail from '../components/ArtistDetail';
 import TrackList from '../components/TrackList';
 
 export default class Login extends Component {
@@ -53,7 +50,6 @@ export default class Login extends Component {
         <div className="row">
           <Sidebar />
           <div className="col-md-10">
-
             <div className="form-group">
               <input onChange={this.handleSearch} ref={input => this.keyword = input} className="form-control form-control--hibeats" placeholder="Search.." />
             </div>
@@ -75,16 +71,10 @@ export default class Login extends Component {
                 {
                   this.filtro === 'track' && <TrackList lista={this.state.lista} />
                 }
-
-
-                {/* <TrackList /> */}
               </div>
-              {/* <AlbumDetail /> */}
             </div>
-            {/* <ArtistDetail /> */}
           </div>
         </div>
-
       </div>
     );
   }

@@ -28,7 +28,7 @@ export default class App extends Component {
     }
   }
 
-  getHashParams() {
+  getHashParams = () => {
     const hashParams = {};
     let e,
       r = /([^&;=]+)=?([^&;]*)/g,
@@ -57,11 +57,12 @@ export default class App extends Component {
           this.setState({ isLogged: false });
         }else {
           this.setState({ isLogged: true });
-          console.log(this.state.isLogged);
           history.push('/home');
         }
         return response.json();
-      }).then((data) => { console.log(data); }).catch((error) => { console.log(error.message); });
+      }).then((data) => {
+          localStorage.setItem('hibeats-urs', JSON.stringify(data));
+      });
 
     return this.state.isLogged;
   }
