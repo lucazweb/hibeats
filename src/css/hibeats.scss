@@ -8,7 +8,7 @@ $cor-azul-padrao: #3584cd;
 
 // MEDIA QUERIES
 // Smartphones
-$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 767px)";
 $mq-smartphones-portrait: "only screen and (max-width : 320px)";
 $mq-smartphones-landscape: "only screen and (min-width : 321px)";
 
@@ -41,12 +41,63 @@ h1, h2, h3, h4, p, span, a{
 .login-box{
     background:$cor-branca;
     border-radius: 4px;
-    padding:10px;
+    padding:30px;
     margin-top:100px !important;
     font-family: 'Source Sans Pro', sans-serif;
-    h1{
-        text-align: center;
-        margin:20px auto;
+    @media #{$mq-smartphones-portrait-landscape} {
+     background: none;       
+    }    
+    @media #{$mq-ipads-portrait-landscape} {
+     background: none;       
+    }    
+    .login-logo{
+        width:200px;
+        height: 90px;
+        background-repeat: no-repeat;
+        margin: auto;
+        background-size: 100%;
+        background-position: center;
+        @media #{$mq-smartphones-portrait-landscape} {
+            width:95%;
+            height:300px;
+            margin-top:200px;
+        }
+        @media #{$mq-ipads-portrait-landscape} {
+            width:95%;
+            height:300px;
+            margin-top:200px;       
+           }              
+    }
+    button{
+        margin-bottom: 10px;
+        @media #{$mq-smartphones-portrait-landscape} {
+            font-size: 4em;
+            svg{
+               display: none;
+            }
+        }
+        @media #{$mq-ipads-portrait-landscape} {
+            font-size: 4em;
+            svg{
+               display: none;
+            }
+        }
+        
+    }
+    p{
+        a{
+            color: $cor-azul-padrao;
+            font-weight: bold;
+            cursor: pointer;
+            @media #{$mq-smartphones-portrait-landscape} {
+                font-size: 3.2em;
+                color: $cor-branca !important;
+            }
+            @media #{$mq-ipads-portrait-landscape} {
+                font-size: 3.2em;
+                color: $cor-branca !important;
+            }
+        }
     }
 }
 
@@ -58,11 +109,14 @@ h1, h2, h3, h4, p, span, a{
     @media #{$mq-smartphones-portrait-landscape} {
         display: none;
     }
+    @media #{$mq-ipads-portrait-landscape} {
+        display: none;
+    }
     .logo{
         width:175px;
         height:60px;
         float: left;
-        //background-image: url('../img/logo.png');
+        background-size: 100%;
         background-repeat:no-repeat;
         margin:20px auto;
     }
@@ -101,6 +155,12 @@ h1, h2, h3, h4, p, span, a{
     @media #{$mq-smartphones-portrait-landscape} {
         font-size: 4em;
         width: 90%;
+        margin: 40px auto;
+        padding:10px 20px;
+    }    
+    @media #{$mq-ipads-portrait-landscape} {
+        font-size: 2.5em;
+        width: 95%;
         margin: 40px auto;
         padding:10px 20px;
     }    
@@ -442,6 +502,14 @@ ul.result-list.result-list--album{
             font-size: 3em;
         }
     }          
+    @media #{$mq-ipads-portrait-landscape} {
+        width:90%;
+        margin: 40px auto 0px auto;       
+        button{
+            width: 290px;
+            font-size: 3em;
+        }
+    }          
 }
 
 button{
@@ -686,6 +754,11 @@ button{
     @media #{$mq-smartphones-portrait-landscape} {
         text-align: center;
         font-size:4em;
+        margin-top: 90px;
+    }     
+    @media #{$mq-ipads-portrait-landscape} {
+        text-align: center;
+        font-size:3.5em;
         margin-top: 90px;
     }     
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../img/logo_login.png';
 import SpotifyLogo from '../img/spotify.svg';
 export default class Login extends Component {
   constructor() {
@@ -13,17 +14,15 @@ export default class Login extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="container">
           <div className="row">
-            <div className="col-md-4 col-center login-box">
-              <h1>hiBeats</h1>
+            <div className="col-xs-10 col-sm-10 col-lg-4 col-center login-box">
+              <div className="login-logo" style={{backgroundImage: `url(${logo})` }} />
               <button onClick={this.logar} className="btn btn-success btn-login-spotify btn-lg btn-block">  <span><SpotifyLogo width={30} /> Entrar com Spotify </span></button>
               <p className="text-center">
                 <a>Entrar com minha conta HiBeats</a>
               </p>
             </div>
           </div>
-        </div>
       </div>
     );
   }

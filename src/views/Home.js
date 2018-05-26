@@ -129,15 +129,20 @@ export default class Login extends Component {
               </div>
             </div>
            
-           {
+           {/* {
              this.state.isFavoriteSquareEnabled &&
              (<Link to='/favorites'>
               <div className="user-profile-square"> 
                 <div className="square-title">Check all your favorites</div>
-                <div className="user-profile-bg" style={{backgroundImage: 'url(' + this.state.user.images[0].url + ')'}}></div>
+                {
+                  this.state.user.images && (
+                    <div className="user-profile-bg" style={{backgroundImage: 'url(' + this.state.user.images[0].url + ')'}}></div>
+                  )
+                }
+                
               </div>             
              </Link>)
-           } 
+           }  */}
           </div>
         </div>
       </div>
