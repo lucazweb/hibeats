@@ -4,7 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import history from './history';
 import Login from './views/Login';
 import Home from './views/Home';
-import Favoritos from './views/Favoritos';
+import Favorites from './views/Favorites';
 import Album from './views/Album';
 import Artist from './views/Artist';
 
@@ -15,8 +15,8 @@ export default class App extends Component {
     super();
     const params = this.getHashParams();
     this.token = params.access_token;
-    this.state = { isLogged: false };
-    this.isLogged = this.isLogged.bind(this);
+    this.state = { isLogged: sessionStorage.getItem('x-access-token') ? true : false };
+    this.isLoggedVerify = this.isLoggedVerify.bind(this);
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ export default class App extends Component {
       spotifyApi.setAccessToken(this.token);
       sessionStorage.setItem('x-access-token', this.token);
       // Verificar Token
-      this.isLogged(this.token);
+      this.isLoggedVerify(this.token);
     }
   }
 
@@ -41,7 +41,7 @@ export default class App extends Component {
     return hashParams;
   }
 
-  isLogged(token) {
+  isLoggedVerify(token) {
     console.log(token);
     const request = new Request('https://api.spotify.com/v1/me', {
       headers: new Headers({
@@ -72,9 +72,9 @@ export default class App extends Component {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/home" render={() => (this.state.isLogged ? <Home /> : <Redirect to="/" />)} />
-        <Route exact path="/favoritos" component={Favoritos} />
-        <Route exact path="/album/:id" component={Album} />
-        <Route exact path="/artist/:id" component={Artist} />
+        <Route path="/favorites" component={Favorites} />
+        <Route path="/album/:id" component={Album} />
+        <Route path="/artist/:id" component={Artist} />
       </Switch>
     );
   }

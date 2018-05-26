@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import history from '../history';
 import AlbumDetail from '../components/AlbumDetail';
 import Sidebar from '../components/Sidebar';
 import AddAsFavorite from '../components/AddAsFavorite';
@@ -25,7 +26,7 @@ export default class Album extends Component {
     });
 
     fetch(request)
-      .then(response => response.json())
+      .then(response =>  response.json())
       .then((data) => {
         /* Tive um contratempo ao tentar acessas os arrays do obj diretamente do render()
         // "Objects are not valid as a React child"

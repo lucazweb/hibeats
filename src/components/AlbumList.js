@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const AlbumList = ({ lista }) => (
-  <ul className="result-list result-list--album">
+
+  lista.length !== 0 ?
+  (<ul className="result-list result-list--album">
     {
        lista.map(item => (
          <Link to={`/album/${item.id}`}>
@@ -34,7 +36,7 @@ const AlbumList = ({ lista }) => (
       ))
     }
 
-  </ul>
+  </ul>) : <h2 className="search-feedback"> Try search your favorite Album.. </h2>
 );
 
 AlbumList.PropTypes = {

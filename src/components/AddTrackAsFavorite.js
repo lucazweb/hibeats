@@ -34,14 +34,17 @@ export default class AddTrackAsFavorite extends Component {
       const favorites = JSON.parse(localStorage.getItem('hibeats-favorites'));
 
       let count = 0;
-      favorites[`${cat}`].forEach((fav) => {
+      let position;
+      favorites[`${cat}`].forEach((fav, index) => {
         if (fav.id === obj.id) {
           count += count + 1;
+          position = index;
         }
       });
 
       if (count !== 0) {
         console.log('Album já favoritado.');
+
       } else {
         favorites[`${cat}`].push(obj);
         localStorage.setItem('hibeats-favorites', JSON.stringify(favorites));

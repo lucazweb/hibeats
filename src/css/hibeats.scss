@@ -11,7 +11,7 @@ body{
 }
 
 h1, h2, h3, h4, p, span, a{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .login-box{
@@ -242,7 +242,22 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
                 }
             }
         }
+    }
+}
 
+.favorites-view{
+    h2{
+        color:$cor-branca !important;
+        text-align: center;
+        font-size: 4em;        
+    }
+
+    .favorite-btns{
+        width:35%;
+        margin: 20px auto;
+        button{
+            width:120px;
+        }
     }
 }
 
@@ -299,6 +314,93 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
     }
 }
 
+.user-profile-square{
+    width:200px;
+    height:200px;
+    float: left;
+    position: relative;
+    margin:10px;
+    background-color: $cor-roxa-cool;
+    padding:10px;
+    transition: all ease 0.4s;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover{
+        background-color: $cor-azul-padrao;
+        .user-profile-bg{
+            width: 120%;
+            height:120%;
+        }
+        .square-title{
+            opacity: 0.8;
+            font-size: 2.5em;
+        }
+    }
+    .square-title{
+        position: absolute;
+        width:90%;
+        top:10px;
+        color:$cor-branca;
+        z-index: 1000;
+        font-weight: bold;
+        font-size: 2em;
+        opacity: 0.3;
+        text-align: center;
+        transition: all ease 0.4s;
+    }
+    .user-profile-bg{
+        transition: all ease 0.4s;
+        opacity:0.5;
+        background-size:cover;
+        position: absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+    }
+}
+
+.result-list.result-list--favorites-album{
+    h3{
+        color:$cor-branca;
+        border-top: 1px solid $cor-branca;
+        border-bottom: 1px solid $cor-branca;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:1.2em;
+        padding-top:2px;
+        padding-bottom:3px;
+    }
+    li{
+        width: 200px;
+        height: 240px;;
+        float:left;
+        transition: ease 0.3s;
+        padding:0px;
+        margin:20px;
+        &:hover{
+          background: none;
+          img{
+            width: 100%;
+            opacity: 0.5;
+          }
+        }
+        img{
+            width: 100%;
+            margin-bottom: 0;
+            transition: ease 0.4s;
+        }
+        .item-info{
+            width: 100%;
+            padding-left: 0px;
+            h3{
+                margin-top:5px;
+                text-align: center;
+                font-size: 0.9em;
+            }
+        }
+    }
+}
+
 // Animations
 .fade-enter {
   opacity: 0.01;
@@ -316,4 +418,9 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
 .fade-leave.fade-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
+}
+
+.search-feedback{
+    color: $cor-branca;
+    margin-top:10px;
 }

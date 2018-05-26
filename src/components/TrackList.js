@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import AddTrackAsFavorite from '../components/AddTrackAsFavorite';
 
 const TrackList = ({ lista }) => (
-  <ul className="result-list result-list--track">
+  lista.length !== 0 ?
+  (<ul className="result-list result-list--track">
     {
     lista.map(item => (
       <li key={item.id}>
@@ -20,7 +21,7 @@ const TrackList = ({ lista }) => (
     ))
   }
 
-  </ul>
+  </ul>) : <h2 className="search-feedback"> Try search your favorite Track.. </h2>
 );
 
 TrackList.PropTypes = {

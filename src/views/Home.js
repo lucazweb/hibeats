@@ -10,7 +10,7 @@ export default class Login extends Component {
     super();
     this.token = sessionStorage.getItem('x-access-token');
     this.filtro = 'artist';
-    this.state = { lista: [], filtro: 'artist' };
+    this.state = { lista: [], filtro: 'artist'};
     this.handleSearch = this.handleSearch.bind(this);
     this.toggleFilters = this.toggleFilters.bind(this);
   }

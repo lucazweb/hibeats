@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ArtistPopularity from './ArtistPopularity';
 
-
 export default class ArtistsList extends Component {
   constructor() {
     super();
-    this.state = { lista: [], in: false };
+    this.state = { lista: [], message:'', isActive: false};
+  }
+
+  componentWillMount(){
+    this.setState({ isActive: true })
   }
 
   render() {
     return (
-      <ul className="result-list">
-        {
-          this.props.lista.map(item => (
+       
+      this.props.lista.length !== 0 ?
 
+      (<ul className="result-list">
+        {
+ 
+          this.props.lista.map(item => (
             <Link key={item.id} to={`/artist/${item.id}`}>
             <li>
               {
@@ -37,8 +43,9 @@ export default class ArtistsList extends Component {
             </Link>
             ))
         }
+      
+      </ul>) : <h2 className="search-feedback"> Try search your favorite Artist.. </h2>
 
-      </ul>
     );
   }
 }

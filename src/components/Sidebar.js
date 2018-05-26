@@ -9,13 +9,18 @@ import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import faHome from '@fortawesome/fontawesome-free-solid/faHome';
 import logo from '../img/logo.png';
 
+// const user = JSON.parse(localStorage.getItem('hibeats-urs'));
+
 const Sidebar = () => (
   <div className="col-md-2 dash-menu">
     <div style={{backgroundImage: 'url(' + logo + ')'}} className="logo" />
+    {/* <div className="user-profile-square"> 
+      <div className="square-title">Os seus hit's aqui</div>
+      <div className="user-profile-bg" style={{backgroundImage: 'url(' + user.images[0].url + ')'}}></div>
+    </div>     */}
     <nav>
       <ul>
-        <li> <FontAwesomeIcon icon={faSearch} /> Search</li>
-        <li> <FontAwesomeIcon icon={faHome} />  Home</li>
+        <li> <Link to="/home"> <FontAwesomeIcon icon={faSearch} /> Search</Link></li> 
         <li> <Link to="/favoritos"><FontAwesomeIcon icon={faStar} />  Favoritos </Link></li>
         <li> <FontAwesomeIcon icon={faSignOutAlt} /> Sair</li>
       </ul>
