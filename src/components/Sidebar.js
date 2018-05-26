@@ -25,7 +25,6 @@ export default class Sidebar extends Component {
   }
 
   componentDidMount(){
-    console.log(history.location.pathname);
     switch (history.location.pathname) {
       case '/favorites':
         this.setState({

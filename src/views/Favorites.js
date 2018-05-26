@@ -50,7 +50,7 @@ export default class Favorites extends Component{
                 favorites.artists.forEach(artist => {
                     artists.push(artist);
                 })
-                console.log(artists);
+
                 this.setState({ artists: artists })
             }
 
@@ -58,7 +58,7 @@ export default class Favorites extends Component{
                 favorites.albuns.forEach(album => {
                     albuns.push(album);
                 })
-                console.log(albuns);
+
                 this.setState({ albuns: albuns })
             }
 
@@ -66,16 +66,13 @@ export default class Favorites extends Component{
                 favorites.tracks.forEach(track => {
                     tracks.push(track);
                 })
-                console.log(tracks);
+                
                 this.setState({ tracks: tracks })
             }
-
-            console.log(albuns, this.state.albuns)
         }
     }
 
     toggleCategory = (evt) => {
-        console.log(evt.target.name);
         switch (evt.target.name) { 
             case 'artists':
                 this.setState({

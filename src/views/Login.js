@@ -5,10 +5,12 @@ export default class Login extends Component {
   constructor() {
     super();
     this.state = {};
+    this.client_id = 'ac1dd07bfcc44091a99738a12eccb55c';
+    this.redirect_uri = 'http://www.lucazweb.com.br/hibeats/';
   }
 
-  logar() {
-    window.location.href = 'https://accounts.spotify.com/authorize?client_id=ac1dd07bfcc44091a99738a12eccb55c&scope=playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20user-read-recently-played%20playlist-modify-private%20ugc-image-upload%20user-follow-modify%20user-follow-read%20user-library-read%20user-library-modify%20user-read-private%20user-read-email%20user-top-read%20user-read-playback-state%20user-read-playback-state&response_type=token&redirect_uri=http://localhost:8080';
+  logar = () => {
+    window.location.href = 'https://accounts.spotify.com/authorize?client_id=' + this.client_id + '&scope=playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20user-read-recently-played%20playlist-modify-private%20ugc-image-upload%20user-follow-modify%20user-follow-read%20user-library-read%20user-library-modify%20user-read-private%20user-read-email%20user-top-read%20user-read-playback-state%20user-read-playback-state&response_type=token&redirect_uri=http://localhost:8080';
   }
 
   render() {

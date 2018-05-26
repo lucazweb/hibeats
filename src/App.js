@@ -23,7 +23,7 @@ export default class App extends Component {
     if (this.token) {
       spotifyApi.setAccessToken(this.token);
       sessionStorage.setItem('x-access-token', this.token);
-      // Verificar Token
+      // Verificando Token
       this.isLoggedVerify(this.token);
     }
   }

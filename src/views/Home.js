@@ -91,7 +91,6 @@ export default class Login extends Component {
     fetch(request)
       .then(response => response.json())
       .then((data) => {
-        console.log(data[`${this.filter}s`].items);
         this.setState({ lista: data[`${this.filter}s`].items });
       });
   }
