@@ -49,9 +49,9 @@ export default class Login extends Component {
       <div className="container-fluid">
         <div className="row">
           <Sidebar />
-          <div className="col-md-10">
+          <div className="col-lg-10 col-sm-12 col-xs-12">
             <div className="form-group">
-              <input onChange={this.handleSearch} ref={input => this.keyword = input} className="form-control form-control--hibeats" placeholder="Search.." />
+              <input onChange={this.handleSearch} ref={input => this.keyword = input} className="form-control form-control--search" placeholder="Search.." />
             </div>
 
             <button name="artist" onClick={this.toggleFilters} className="btn btn-filtro btn-hibeats active"> Artistas </button>

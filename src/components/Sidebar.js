@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import history from '../history';
 import PropTypes from 'prop-types';
@@ -55,22 +55,31 @@ export default class Sidebar extends Component {
 
   render(){
     return (
+      <Fragment>
       <div className="col-md-2 dash-menu">
-      <div style={{backgroundImage: 'url(' + logo + ')'}} className="logo" />
-      {
-        /* <div className="user-profile-square"> 
-        <div className="square-title">Os seus hit's aqui</div>
-        <div className="user-profile-bg" style={{backgroundImage: 'url(' + user.images[0].url + ')'}}></div>
-      </div>     
-      */}
-      <nav className="sidebar">
-        <ul>
-          <li style={this.state.locationStyle.search}> <Link to="/home"> <FontAwesomeIcon icon={faSearch} /> Search</Link></li> 
-          <li style={this.state.locationStyle.favorites}> <Link to="/favorites"><FontAwesomeIcon icon={faStar} />  Favoritos </Link></li>
-          <li> <FontAwesomeIcon icon={faSignOutAlt} /> Sair</li>
-        </ul>
-      </nav>
-    </div>      
+        <div style={{backgroundImage: 'url(' + logo + ')'}} className="logo" />
+        {
+          /* <div className="user-profile-square"> 
+          <div className="square-title">Os seus hit's aqui</div>
+          <div className="user-profile-bg" style={{backgroundImage: 'url(' + user.images[0].url + ')'}}></div>
+        </div>     
+        */}
+        <nav className="sidebar">
+          <ul>
+            <li style={this.state.locationStyle.search}> <Link to="/home"> <FontAwesomeIcon icon={faSearch} /> Search</Link></li> 
+            <li style={this.state.locationStyle.favorites}> <Link to="/favorites"><FontAwesomeIcon icon={faStar} />  Favoritos </Link></li>
+            <li> <FontAwesomeIcon icon={faSignOutAlt} /> Sair</li>
+          </ul>
+        </nav>
+    </div> 
+    <div className="mobile-nav"> 
+          <ul>
+              <li style={this.state.locationStyle.search}><Link to="/home"><FontAwesomeIcon icon={faSearch} /> <span>Search</span></Link></li>
+              <li style={this.state.locationStyle.favorites}><Link to="/favorites"><FontAwesomeIcon icon={faStar} /> <span>Favorites</span></Link></li>
+              <li><FontAwesomeIcon icon={faSignOutAlt} /> <span>Sair</span></li>
+          </ul>
+      </div>    
+    </Fragment>     
     )
   }
 }
