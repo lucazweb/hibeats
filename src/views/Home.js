@@ -29,7 +29,12 @@ export default class Login extends Component {
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.toggleFilters = this.toggleFilters.bind(this);
+  }
 
+  componentDidMount(){
+    if(!sessionStorage.getItem('x-access-token')) {
+      history.push('/');
+    }
   }
 
   toggleFilters(evt) {
@@ -77,11 +82,6 @@ export default class Login extends Component {
   }
 
   handleSearch() {
-    console.log(this.token);
-    console.log(this.keyword.value);
-    console.log(this.state.filter);
-    console.log(this.filter);
-
     const request = new Request(`https://api.spotify.com/v1/search?q=${this.keyword.value}&type=${this.filter}`, {
       headers: new Headers({
         Authorization: `Bearer ${this.token}`
@@ -129,7 +129,7 @@ export default class Login extends Component {
               </div>
             </div>
            
-           {/* {
+           {
              this.state.isFavoriteSquareEnabled &&
              (<Link to='/favorites'>
               <div className="user-profile-square"> 
@@ -142,7 +142,7 @@ export default class Login extends Component {
                 
               </div>             
              </Link>)
-           }  */}
+           } 
           </div>
         </div>
       </div>

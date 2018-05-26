@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import history from '../history';
 import Sidebar from '../components/Sidebar';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -32,12 +33,16 @@ export default class Favorites extends Component{
     }
 
     componentDidMount(){
+
+        if(!sessionStorage.getItem('x-access-token')) {
+            history.push('/');
+        }
+
         const artists = [];
         const albuns = [];
         const tracks = [];
 
         if(localStorage.getItem('hibeats-favorites') !== null){
-
             
             const favorites = JSON.parse(localStorage.getItem('hibeats-favorites'));
             

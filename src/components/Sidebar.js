@@ -10,8 +10,6 @@ import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import faHome from '@fortawesome/fontawesome-free-solid/faHome';
 import logo from '../img/logo.png';
 
-// const user = JSON.parse(localStorage.getItem('hibeats-urs'));
-
 export default class Sidebar extends Component {
   constructor() {
     super();
@@ -58,16 +56,10 @@ export default class Sidebar extends Component {
       <Fragment>
       <div className="col-md-2 dash-menu">
         <div style={{backgroundImage: 'url(' + logo + ')'}} className="logo" />
-        {
-          /* <div className="user-profile-square"> 
-          <div className="square-title">Os seus hit's aqui</div>
-          <div className="user-profile-bg" style={{backgroundImage: 'url(' + user.images[0].url + ')'}}></div>
-        </div>     
-        */}
         <nav className="sidebar">
           <ul>
             <li style={this.state.locationStyle.search}> <Link to="/home"> <FontAwesomeIcon icon={faSearch} /> Search</Link></li> 
-            <li style={this.state.locationStyle.favorites}> <Link to="/favorites"><FontAwesomeIcon icon={faStar} />  Favoritos </Link></li>
+            <li style={this.state.locationStyle.favorites}> <Link to="/favorites"><FontAwesomeIcon icon={faStar} />  Favorites </Link></li>
             <li> <FontAwesomeIcon icon={faSignOutAlt} /> Sair</li>
           </ul>
         </nav>
