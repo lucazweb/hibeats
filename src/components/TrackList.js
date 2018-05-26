@@ -14,7 +14,7 @@ const TrackList = ({ lista }) => (
 
         <div className="item-info">
           <h3>{item.name} -  {item.album.name}</h3>
-          <p> {item.artists[0].name} - 2:30</p>
+          <p> <span>{item.artists[0].name} - 2:30 </span></p>
           <AddTrackAsFavorite favorite={item} category="tracks" />
         </div>
       </li>

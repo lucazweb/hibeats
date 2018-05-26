@@ -93,7 +93,6 @@ h1, h2, h3, h4, p, span, a{
     background: darken($cor-preta, 20%);
     color:$cor-branca;
     font-size:1.8em;
-    padding:10px;
     border-color: $cor-preta;
     &:focus{
         background: darken($cor-preta, 10%);
@@ -101,7 +100,9 @@ h1, h2, h3, h4, p, span, a{
     }
     @media #{$mq-smartphones-portrait-landscape} {
         font-size: 4em;
-        margin-top: 40px;
+        width: 90%;
+        margin: 40px auto;
+        padding:10px 20px;
     }    
 }
 
@@ -166,13 +167,15 @@ ul.result-list{
               line-height: 18px;
               @media #{$mq-smartphones-portrait-landscape} {
                 line-height: 30px;
-            }              
+              }
               span{ 
-                  font-style: italic; color: lighten($cor-preta, 30%);
-                  @media #{$mq-smartphones-portrait-landscape} {
-                    font-size: 2.2em;
-                  }
+                font-style: italic; color: lighten($cor-preta, 30%);
+               
+                @media #{$mq-smartphones-portrait-landscape} {
+                  font-size: 2.2em;
                 }
+              }                             
+
             }
 
         }
@@ -207,8 +210,47 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
         }
         .item-info{
             width: 70%;
+            position: relative;
+            .track-list-favorite{
+                position: absolute;
+                top: -5px;
+                right: -50px;
+                font-size: 3em;
+                z-index: 2000;
+            }
+            p{
+                @media #{$mq-smartphones-portrait-landscape} {
+                    line-height: 30px;
+                }            
+                span{
+                    font-size:2.2em;
+                }
+            }
+
         }
     }
+}
+ul.result-list.result-list--album{
+    li{
+        .item-info{
+            p{
+                font-size: 16px;
+                @media #{$mq-smartphones-portrait-landscape} {
+                    margin-top: 10px;
+                    line-height: 73px;
+                    font-size: 2.2em;            
+                    span{
+                        font-size: 2.2em;
+                    }
+                }            
+            span{
+                font-size: 1.4em;
+            }
+
+            }
+    }
+
+   } 
 }
 
 .album-detail{
@@ -225,16 +267,11 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
     }
     .album-info{
         float: left;
-        @media #{$mq-smartphones-portrait-landscape} {
-            width: 90%;
-            margin:auto;
-            float: none;
-        }         
+        width: 100%;
         img{
             width:100%;
             float:left;
-            margin-bottom: 10px;
-            
+            margin-bottom: 10px;   
         }
         h2{
             color:$cor-branca;
@@ -247,6 +284,13 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
         }
 
         p{color:$cor-branca; text-align:center;}
+        
+        // Album info smartphones
+        @media #{$mq-smartphones-portrait-landscape} {
+            width: 90%;
+            margin:auto;
+            float: none;
+        }           
     }
 
     ul.track-list{
@@ -265,9 +309,10 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
             margin-bottom: 5px;
             transition: ease 0.4s;
             @media #{$mq-smartphones-portrait-landscape} {
-                font-size: 3.5em;
+                font-size: 3em;
                 border-bottom: 1px solid lighten($cor-preta, 20%);
                 color: darken($cor-branca, 20%);
+                svg{margin-right: 10px;}
                 &:first-child{
                     padding-top:30px;
                 }
@@ -275,6 +320,9 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
             &:hover{
                 background:$cor-azul-padrao;
                 color:$cor-branca;
+                @media #{$mq-smartphones-portrait-landscape} {
+                background: none;
+                }
             }
             
         }
@@ -287,11 +335,20 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
         color:$cor-branca !important;
         text-align: center;
         font-size: 4em;
+        @media #{$mq-smartphones-portrait-landscape} {
+            margin:20px auto;
+            border-top: 1px solid $cor-branca;
+            border-bottom: 1px solid $cor-branca;            
+        }        
     }
 
     .favorite-ctrl{
         width:30%;
         margin:auto;
+        @media #{$mq-smartphones-portrait-landscape} {
+            width:90%;
+            margin-bottom: 20px;
+        }
     }
 
     .result-list.result-list--album{
@@ -302,6 +359,14 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
             transition: ease 0.3s;
             padding:0px;
             margin:6px;
+            @media #{$mq-smartphones-portrait-landscape} {
+                width:80%;
+                height: 850px;
+                float: none;
+                margin: 10px auto;
+                border: none;
+            }        
+            
             &:hover{
               background: none;
               img{
@@ -311,7 +376,7 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
             }
             img{
                 width: 100%;
-                margin-bottom: 0;
+                margin-bottom: 5px;
                 transition: ease 0.4s;
             }
             .item-info{
@@ -321,7 +386,15 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
                     margin-top:5px;
                     text-align: center;
                     font-size: 0.9em;
-                }
+                    @media #{$mq-smartphones-portrait-landscape} {
+                        font-size: 3em;
+                        margin-bottom: 10px;
+                        border-top: 1px solid $cor-branca;
+                        border-bottom: 1px solid $cor-branca;    
+                        padding-top:3px;
+                        padding-bottom:3px;                                              
+                    }                      
+                }                 
             }
         }
     }
@@ -355,6 +428,22 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
 }
 
 //  HELPERS
+.filter-btns{
+    width:35%;
+    // margin: 40px auto 0px auto;
+    button{
+        width:120px;
+    }
+    @media #{$mq-smartphones-portrait-landscape} {
+        width:90%;
+        margin: 40px auto 0px auto;       
+        button{
+            width: 290px;
+            font-size: 3em;
+        }
+    }          
+}
+
 button{
     outline: none !important;
     &:focus{
@@ -394,11 +483,14 @@ button{
     background: $cor-azul-padrao;
     color: $cor-branca;
     transition: all ease 0.4s;
-    font-size: 3.5em;
-    padding: 1.375rem .75rem;
+
     &:hover{
         background: darken($cor-azul-padrao, 10%);
         color:$cor-branca;
+    }
+    @media #{$mq-smartphones-portrait-landscape} {
+        font-size: 3.5em;
+        padding: 1.375rem .75rem;
     }
 }
 
@@ -418,7 +510,7 @@ button{
 .user-profile-square{
     width:90%;
     height:800px;
-    margin:20px auto;
+    margin:90px auto;
     float: none;
     clear: both;
     position: relative;
@@ -469,6 +561,7 @@ button{
 .result-list.result-list--favorites-album{
     @media #{$mq-smartphones-portrait-landscape} {
         width: 100%;
+        padding-bottom: 240px;
     } 
     h3{
         color:$cor-branca;
@@ -485,7 +578,7 @@ button{
     }
     li{
         width: 200px;
-        height: 240px;;
+        height: 240px;
         float:left;
         transition: ease 0.3s;
         padding:0px;
@@ -553,7 +646,7 @@ button{
         font-size: 3.5em;
         list-style: none;
         text-align: center;
-        padding:8px;
+        padding:12px 8px 8px 8px;
         span{
             display: block;
         }

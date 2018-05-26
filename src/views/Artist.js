@@ -47,7 +47,7 @@ export default class Album extends Component {
       <div className="container-fluid">
         <div className="row">
           <Sidebar />
-          <div className="col-md-10">
+          <div className="col-sm-12 col-xs-12 col-lg-10">
             <div className="artist-detail">
                 <h2>{this.state.artist.name}</h2>
                 <div className="favorite-ctrl">

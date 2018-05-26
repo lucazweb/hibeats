@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -21,13 +21,13 @@ const AlbumList = ({ lista }) => (
                <p>
                  {
               item.artists.length > 3 ? 'Various artists' :
-              (<span>
+              (<Fragment>
                 {
                   item.artists.map((artist, index) => (
                     <span>{ artist.name }, </span>
                     ))
                 }
-               </span>)
+               </Fragment>)
             }
                </p>
              </div>

@@ -71,8 +71,7 @@ export default class Favorites extends Component{
 
     toggleCategory = (evt) => {
         console.log(evt.target.name);
-        switch (evt.target.name) {
-             
+        switch (evt.target.name) { 
             case 'artists':
                 this.setState({
                     btnStyle: {
@@ -105,8 +104,6 @@ export default class Favorites extends Component{
                     filter: evt.target.name,
                 });
                 break;
-            
-
             default:
                 break;
         }
