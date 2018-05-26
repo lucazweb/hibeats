@@ -215,6 +215,7 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
     margin:20px auto;
     padding:15px;
     padding-top:5px;
+    
     h2{
       color:$cor-branca !important;
       text-align: center;
@@ -224,16 +225,27 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
     }
     .album-info{
         float: left;
+        @media #{$mq-smartphones-portrait-landscape} {
+            width: 90%;
+            margin:auto;
+            float: none;
+        }         
         img{
             width:100%;
             float:left;
             margin-bottom: 10px;
+            
         }
         h2{
             color:$cor-branca;
             text-align: center;
             margin-bottom: 0px;
         }
+
+        span{
+            font-size:3em;
+        }
+
         p{color:$cor-branca; text-align:center;}
     }
 
@@ -241,6 +253,9 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
         width:100%;
         float: left;
         padding-left: 10px;
+        @media #{$mq-smartphones-portrait-landscape} {
+            padding-bottom: 190px;
+        } 
         li{
             width:100%;
             list-style:none;
@@ -249,10 +264,19 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
             color:$cor-branca;
             margin-bottom: 5px;
             transition: ease 0.4s;
+            @media #{$mq-smartphones-portrait-landscape} {
+                font-size: 3.5em;
+                border-bottom: 1px solid lighten($cor-preta, 20%);
+                color: darken($cor-branca, 20%);
+                &:first-child{
+                    padding-top:30px;
+                }
+            }             
             &:hover{
                 background:$cor-azul-padrao;
                 color:$cor-branca;
             }
+            
         }
     }
 
@@ -370,6 +394,8 @@ button{
     background: $cor-azul-padrao;
     color: $cor-branca;
     transition: all ease 0.4s;
+    font-size: 3.5em;
+    padding: 1.375rem .75rem;
     &:hover{
         background: darken($cor-azul-padrao, 10%);
         color:$cor-branca;
@@ -390,27 +416,32 @@ button{
 }
 
 .user-profile-square{
-    width:200px;
-    height:200px;
-    float: left;
+    width:90%;
+    height:800px;
+    margin:20px auto;
+    float: none;
+    clear: both;
     position: relative;
-    margin:10px;
-    background-color: $cor-roxa-cool;
+    background-color: $cor-azul-padrao;
     padding:10px;
     transition: all ease 0.4s;
     overflow: hidden;
     cursor: pointer;
-    &:hover{
-        background-color: $cor-azul-padrao;
-        .user-profile-bg{
-            width: 120%;
-            height:120%;
-        }
-        .square-title{
-            opacity: 0.8;
-            font-size: 2.5em;
-        }
+    display: none;
+    @media #{$mq-smartphones-portrait-landscape} {
+        display: block;
     }
+    // &:hover{
+    //     background-color: $cor-azul-padrao;
+    //     .user-profile-bg{
+    //         width: 120%;
+    //         height:120%;
+    //     }
+    //     .square-title{
+    //         opacity: 0.8;
+    //         font-size: 2.5em;
+    //     }
+    // }
     .square-title{
         position: absolute;
         width:90%;
@@ -418,8 +449,8 @@ button{
         color:$cor-branca;
         z-index: 1000;
         font-weight: bold;
-        font-size: 2em;
-        opacity: 0.3;
+        font-size: 9.5em;
+        opacity: 0.5;
         text-align: center;
         transition: all ease 0.4s;
     }

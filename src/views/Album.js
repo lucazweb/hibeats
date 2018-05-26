@@ -59,11 +59,11 @@ export default class Album extends Component {
       <div className="container-fluid">
         <div className="row">
           <Sidebar />
-          <div className="col-md-10">
+          <div className="col-lg-10 col-sm-12 col-xs-12">
             <div className="album-detail">
               <h2>{this.state.album.name} </h2>
               <div className="row">
-                <div className="col-md-4 no-padding">
+                <div className="col-lg-4 col-sm-12 col-xs-12 no-padding">
                   <div className="album-info">
                     <img alt="" className="img" src={this.images[0]} />
                     <p>
@@ -76,7 +76,7 @@ export default class Album extends Component {
                     <AddAsFavorite favorite={this.state.album} category="albuns" />
                   </div>
                 </div>
-                <div className="col-md-8">
+                <div className="col-lg-8 col-sm-12 col-xs-12">
                   <ul className="track-list">
                     {
                     this.tracks.map(track => (

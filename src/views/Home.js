@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import Sidebar from '../components/Sidebar';
 import AlbumList from '../components/AlbumList';
@@ -10,7 +11,7 @@ export default class Login extends Component {
     super();
     this.token = sessionStorage.getItem('x-access-token');
     this.filtro = 'artist';
-    this.state = { lista: [], filtro: 'artist'};
+    this.state = { lista: [], filtro: 'artist', user: JSON.parse(localStorage.getItem('hibeats-urs'))};
     this.handleSearch = this.handleSearch.bind(this);
     this.toggleFilters = this.toggleFilters.bind(this);
   }
@@ -73,6 +74,13 @@ export default class Login extends Component {
                 }
               </div>
             </div>
+            
+            <Link to='/favorites'>
+            <div className="user-profile-square"> 
+              <div className="square-title">Check all your favorites</div>
+              <div className="user-profile-bg" style={{backgroundImage: 'url(' + this.state.user.images[0].url + ')'}}></div>
+            </div>             
+            </Link>
           </div>
         </div>
       </div>
