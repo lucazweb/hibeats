@@ -1,10 +1,34 @@
-
+// PALETA DE CORES
 $cor-preta: #333;
 $cor-branca: white;
 $cor-vermelha-hot: #af3535;
 $cor-amarelo-regular: gold;
 $cor-roxa-cool:#ad61b9;
 $cor-azul-padrao: #3584cd;
+
+// MEDIA QUERIES
+// Smartphones
+$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+$mq-smartphones-portrait: "only screen and (max-width : 320px)";
+$mq-smartphones-landscape: "only screen and (min-width : 321px)";
+
+// iPads
+$mq-ipads-portrait-landscape: "only screen and (min-device-width : 768px) and (max-device-width : 1024px)";
+$mq-ipads-portrait: "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)";
+$mq-ipads-landscape: "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)";
+
+// Large Screens
+$mq-desktops-laptops: "only screen and (min-width : 1224px)";
+$mq-large-screens: "only screen and (min-width : 1824px)";
+
+// iPhone 4
+$mq-iphone4-portrait: "only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2)";
+$mq-iphone4-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2)";
+
+//iPhone 5
+$mq-iphone5-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 568px)";
+$mq-iphone5-portrait: "only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait)";
+$mq-iphone5-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape)";
 
 body{
     background: $cor-preta;
@@ -31,7 +55,9 @@ h1, h2, h3, h4, p, span, a{
     overflow:hidden;
     color:$cor-branca;
     min-height:768px;
-
+    @media #{$mq-smartphones-portrait-landscape} {
+        display: none;
+    }
     .logo{
         width:175px;
         height:60px;
@@ -262,7 +288,13 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
 }
 
 //  HELPERS
-
+button{
+    outline: none !important;
+    &:focus{
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
 .col-center{
     float: none;
     margin: auto;
@@ -383,6 +415,9 @@ ul.result-list.result-list--album, ul.result-list.result-list--track{
             width: 100%;
             opacity: 0.5;
           }
+        }
+        .circle{
+            border-radius:140px;
         }
         img{
             width: 100%;

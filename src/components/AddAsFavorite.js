@@ -28,7 +28,11 @@ export default class AddAsFavorite extends Component {
     if (cat === 'albuns') {
       obj.artist = this.props.favorite.artists;
       obj.image = this.props.favorite.images[0].url;
+    }else if (cat === 'artists'){
+      obj.image = this.props.favorite.images[0].url;
     }
+
+    
 
     if (localStorage.getItem('hibeats-favorites') !== null) {
       console.log('Favoritos existe');
