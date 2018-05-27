@@ -1,5 +1,5 @@
 import { createBrowserHistory } from 'history';
 
 export default createBrowserHistory({
-    basename:"/hibeats/",
+  basename:"/hibeats/",
 });
