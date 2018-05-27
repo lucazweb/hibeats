@@ -6,22 +6,14 @@ import faMusic from '@fortawesome/fontawesome-free-solid/faMusic';
 import faStar from '@fortawesome/fontawesome-free-solid/faStar';
 
 export default class AlbumDetail extends Component {
-
-  constructor(){
+  constructor() {
     super();
-    this.state = {album: []}
-  }
-
-  componentDidMount() {
-    //console.log(this.props);
+    this.state = { album: [] };
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps.album);
-    this.setState({ album:newProps.album });
-    console.log(this.state.album);
+    this.setState({ album: newProps.album });
   }
-
 
   render() {
     return (
@@ -43,26 +35,3 @@ export default class AlbumDetail extends Component {
     );
   }
 }
-
-
-/*
-  convertDuration(duration) {
-    const minutes = Math.floor(duration / 60000);
-    const seconds = ((duration % 60000) / 1000).toFixed(0);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  }
-
-    const request = new Request(`https://api.spotify.com/v1/albums/${this.props.match.params.id}/tracks`, {
-      headers: new Headers({
-        Authorization: `Bearer ${this.token}`,
-      }),
-    });
-
-    fetch(request)
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data.items);
-        this.setState({ tracks: data.items });
-      });
-
-      */

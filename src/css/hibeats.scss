@@ -680,6 +680,7 @@ button{
             border-radius:140px;
             @media #{$mq-smartphones-portrait-landscape} {
                 border-radius:370px;
+                height:200px;
             } 
         }
         img{

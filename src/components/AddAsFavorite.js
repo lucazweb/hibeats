@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faStar from '@fortawesome/fontawesome-free-solid/faStar';
-import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
 
 export default class AddAsFavorite extends Component {
   constructor() {
@@ -10,11 +9,11 @@ export default class AddAsFavorite extends Component {
     this.state = { buttonText: 'Add to favorites', doneStyle: {} };
   }
 
-  toggleButtonState(){
+  toggleButtonState = () => {
     this.setState({
       doneStyle: { backgroundColor: '#669966'},
       buttonText: 'Added to favorites',
-    })
+    });
   }
 
   addAsFavorite = () => {
@@ -28,16 +27,12 @@ export default class AddAsFavorite extends Component {
     if (cat === 'albuns') {
       obj.artist = this.props.favorite.artists;
       obj.image = this.props.favorite.images[0].url;
-    }else if (cat === 'artists'){
+    } else if (cat === 'artists') {
       obj.image = this.props.favorite.images[0].url;
     }
 
-    
-
     if (localStorage.getItem('hibeats-favorites') !== null) {
-      console.log('Favoritos existe');
       const favorites = JSON.parse(localStorage.getItem('hibeats-favorites'));
-
       let count = 0;
       favorites[`${cat}`].forEach((fav) => {
         if (fav.id === obj.id) {

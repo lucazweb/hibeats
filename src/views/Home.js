@@ -19,7 +19,6 @@ export default class Login extends Component {
       isFavoriteSquareEnabled: true,
       lista: [], 
       filter: 'artist',
-      userImg: '',
       btnStyle: {
         artists: this.activeStyle,
         albuns: {},
@@ -30,63 +29,59 @@ export default class Login extends Component {
     this.toggleFilters = this.toggleFilters.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     if(!sessionStorage.getItem('x-access-token')) {
       history.push('/');
     }
 
-    if(localStorage.getItem('hibeats-urs')){
+    if (localStorage.getItem('hibeats-urs')) {
       const user = JSON.parse(localStorage.getItem('hibeats-urs'));
-      console.log(user.images[0].url);
-      this.userImg = user.images[0].url
-      this.setState( {
-        userImg: user.images[0].url
-      } )
+      this.userImg = user.images[0].url;
     }
   }
 
-  toggleFilters = (evt) => {
-    
-  this.setState({  filter: evt.target.name, isFavoriteSquareEnabled: false });
-  this.filter = evt.target.name;
-  this.setState({ lista: [] });
-  this.handleSearch();
+  toggleFilters = (evt) => {   
+    this.setState({  filter: evt.target.name, isFavoriteSquareEnabled: false });
+    this.filter = evt.target.name;
+    this.setState({ lista: [] });
+    this.handleSearch();
 
-    switch (evt.target.name) { 
+    switch (evt.target.name) {
       case 'artist':
-          this.setState({
-              btnStyle: {
-                  artists: this.activeStyle,
-                  albuns: {},
-                  tracks: {},
-              },
-              filter: evt.target.name,
-          });
-          break;
+        this.setState({
+          btnStyle: {
+            artists: this.activeStyle,
+            albuns: {},
+            tracks: {},
+          },
+          filter: evt.target.name,
+        });
+        break;
 
       case 'album':
-          this.setState({
-              btnStyle: {
-                  artists: {},
-                  albuns: this.activeStyle,
-                  tracks: {},
-              },
-              filter: evt.target.name,
-          });
-          break;
+        this.setState({
+          btnStyle: {
+            artists: {},
+            albuns: this.activeStyle,
+            tracks: {},
+          },
+          filter: evt.target.name,
+        });
+        break;
 
       case 'track':
-          this.setState({
-              btnStyle: {
-                  artists: {},
-                  albuns: {},
-                  tracks: this.activeStyle,
-              },                    
-              filter: evt.target.name,
-          });
-          break;
+        this.setState({
+          btnStyle: {
+            artists: {},
+            albuns: {},
+            tracks: this.activeStyle,
+          },                    
+          filter: evt.target.name,
+        });
+        break;
+
       default:
-          break;
+        break;
     }
   }
 
@@ -115,10 +110,10 @@ export default class Login extends Component {
             </div>
             <div className="filter-btns"> 
               <div className="btn-group" role="group">
-                  <button style={this.state.btnStyle.artists} onClick={this.toggleFilters} name="artist"type="button"className="btn btn-filter btn-secondary">Artists</button>
-                  <button style={this.state.btnStyle.albuns} onClick={this.toggleFilters} name="album" type="button" className="btn btn-filter btn-secondary">Albuns</button>
-                  <button style={this.state.btnStyle.tracks} onClick={this.toggleFilters} name="track" type="button" className="btn btn-filter btn-secondary">Tracks</button>
-              </div>            
+                <button style={this.state.btnStyle.artists} onClick={this.toggleFilters} name="artist"type="button"className="btn btn-filter btn-secondary">Artists</button>
+                <button style={this.state.btnStyle.albuns} onClick={this.toggleFilters} name="album" type="button" className="btn btn-filter btn-secondary">Albuns</button>
+                <button style={this.state.btnStyle.tracks} onClick={this.toggleFilters} name="track" type="button" className="btn btn-filter btn-secondary">Tracks</button>
+              </div>
             </div>
             <div className="row">
               <div className="col-md-12">
@@ -136,16 +131,15 @@ export default class Login extends Component {
                 }
               </div>
             </div>
-           
-           {
+            {
              (localStorage.getItem('hibeats-urs') && this.state.isFavoriteSquareEnabled) &&
              (<Link to='/favorites'>
-              <div className="user-profile-square"> 
-                <div className="square-title">Check all your favorites</div>
-                    <div className="user-profile-bg" style={{backgroundImage: 'url(' + this.userImg + ')'}}></div>
-              </div>             
+               <div className="user-profile-square">
+                 <div className="square-title">Check all your favorites</div>
+                 <div className="user-profile-bg" style={{backgroundImage: 'url(' + this.userImg + ')'}}></div>
+               </div>
              </Link>)
-           } 
+           }
           </div>
         </div>
       </div>

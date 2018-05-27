@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import history from '../history';
-import AlbumDetail from '../components/AlbumDetail';
 import Sidebar from '../components/Sidebar';
 import AddAsFavorite from '../components/AddAsFavorite';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faMusic from '@fortawesome/fontawesome-free-solid/faMusic';
-import faStar from '@fortawesome/fontawesome-free-solid/faStar';
 
 export default class Album extends Component {
   constructor() {

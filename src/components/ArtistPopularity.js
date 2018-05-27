@@ -20,13 +20,13 @@ export default class ArtistPopularity extends Component {
           <FontAwesomeIcon icon={faMeh} /> Underground
         </div>
       );
-    } else if ((num > 30 < 59) && (num < 60)) {
+    } else if ((num > 30) && (num < 59)) {
       return (
         <div className="popularity regular">
           <FontAwesomeIcon icon={faThumbsUp} /> Regular
         </div>
       );
-    } else if ((num >= 60 <= 79) && (num < 80)) {
+    } else if ((num >= 60) && (num < 80)) {
       return (
         <div className="popularity cool">
           <FontAwesomeIcon icon={faHearth} /> Cool
@@ -41,12 +41,12 @@ export default class ArtistPopularity extends Component {
   }
 
   render() {
-    return(
+    return (
       <Fragment>
         {
           this.artistPopularity(this.props.popularity)
         }
-     </Fragment>
+      </Fragment>
     )
   }
 }

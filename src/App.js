@@ -29,9 +29,9 @@ export default class App extends Component {
 
   getHashParams = () => {
     const hashParams = {};
-    let e,
-      r = /([^&;=]+)=?([^&;]*)/g,
-      q = window.location.hash.substring(1);
+    let e;
+    const r = /([^&;=]+)=?([^&;]*)/g;
+    const q = window.location.hash.substring(1);
     e = r.exec(q);
     while (e) {
       hashParams[e[1]] = decodeURIComponent(e[2]);
@@ -41,7 +41,6 @@ export default class App extends Component {
   }
 
   isLoggedVerify = (token) => {
-    console.log(token);
     const request = new Request('https://api.spotify.com/v1/me', {
       headers: new Headers({
         Authorization: `Bearer ${token}`,
@@ -54,13 +53,13 @@ export default class App extends Component {
           history.push('/');
           throw new Error('Não autorizado');
           this.setState({ isLogged: false });
-        }else {
+        } else {
           this.setState({ isLogged: true });
           history.push('/home');
         }
         return response.json();
       }).then((data) => {
-          localStorage.setItem('hibeats-urs', JSON.stringify(data));
+        localStorage.setItem('hibeats-urs', JSON.stringify(data));
       });
     return this.state.isLogged;
   }

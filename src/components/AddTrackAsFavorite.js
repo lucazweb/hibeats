@@ -44,7 +44,6 @@ export default class AddTrackAsFavorite extends Component {
 
       if (count !== 0) {
         console.log('Album já favoritado.');
-
       } else {
         favorites[`${cat}`].push(obj);
         localStorage.setItem('hibeats-favorites', JSON.stringify(favorites));
