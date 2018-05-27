@@ -224,7 +224,7 @@ ul.result-list{
                 margin:0;
                 font-size: 1.4em;
                 @media #{$mq-smartphones-portrait-landscape} {
-                    font-size: 3em;
+                    font-size: 2.5em;
                 }                
             }
             p{
@@ -586,8 +586,8 @@ button{
 }
 
 .user-profile-square{
-    width:90%;
-    height:800px;
+    width:80%;
+    height:745px;
     margin:90px auto;
     float: none;
     clear: both;

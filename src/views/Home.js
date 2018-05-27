@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import $ from 'jquery';
 import Sidebar from '../components/Sidebar';
 import AlbumList from '../components/AlbumList';
 import ArtistsList from '../components/ArtistsList';
@@ -19,8 +18,8 @@ export default class Login extends Component {
     this.state = { 
       isFavoriteSquareEnabled: true,
       lista: [], 
-      filter: 'artist', 
-      user: JSON.parse(localStorage.getItem('hibeats-urs')),
+      filter: 'artist',
+      userImg: '',
       btnStyle: {
         artists: this.activeStyle,
         albuns: {},
@@ -35,13 +34,23 @@ export default class Login extends Component {
     if(!sessionStorage.getItem('x-access-token')) {
       history.push('/');
     }
+
+    if(localStorage.getItem('hibeats-urs')){
+      const user = JSON.parse(localStorage.getItem('hibeats-urs'));
+      console.log(user.images[0].url);
+      this.userImg = user.images[0].url
+      this.setState( {
+        userImg: user.images[0].url
+      } )
+    }
   }
 
-  toggleFilters(evt) {
-    this.setState({ filter: evt.target.name });
-    this.filter = evt.target.name;
-    this.setState({ lista: [] });
-    this.handleSearch();
+  toggleFilters = (evt) => {
+    
+  this.setState({  filter: evt.target.name, isFavoriteSquareEnabled: false });
+  this.filter = evt.target.name;
+  this.setState({ lista: [] });
+  this.handleSearch();
 
     switch (evt.target.name) { 
       case 'artist':
@@ -78,7 +87,7 @@ export default class Login extends Component {
           break;
       default:
           break;
-  }
+    }
   }
 
   handleSearch() {
@@ -129,16 +138,11 @@ export default class Login extends Component {
             </div>
            
            {
-             this.state.isFavoriteSquareEnabled &&
+             (localStorage.getItem('hibeats-urs') && this.state.isFavoriteSquareEnabled) &&
              (<Link to='/favorites'>
               <div className="user-profile-square"> 
                 <div className="square-title">Check all your favorites</div>
-                {
-                  this.state.user.images && (
-                    <div className="user-profile-bg" style={{backgroundImage: 'url(' + this.state.user.images[0].url + ')'}}></div>
-                  )
-                }
-                
+                    <div className="user-profile-bg" style={{backgroundImage: 'url(' + this.userImg + ')'}}></div>
               </div>             
              </Link>)
            } 

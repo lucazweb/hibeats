@@ -28,10 +28,6 @@ export default class Album extends Component {
     fetch(request)
       .then(response =>  response.json())
       .then((data) => {
-        /* Tive um contratempo ao tentar acessas os arrays do obj diretamente do render()
-        // "Objects are not valid as a React child"
-        // Passando elementos para um array criado ao iniciar o componente; */
-
         data.images.forEach((img) => {
           this.images.push(img.url);
         });
@@ -49,7 +45,6 @@ export default class Album extends Component {
             name: track.name,
           });
         });
-
         this.setState({ album: data });
       });
   }

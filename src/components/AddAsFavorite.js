@@ -7,13 +7,13 @@ import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
 export default class AddAsFavorite extends Component {
   constructor() {
     super();
-    this.state = { buttonText: 'Adicionar aos favoritos', doneStyle: {} };
+    this.state = { buttonText: 'Add to favorites', doneStyle: {} };
   }
 
   toggleButtonState(){
     this.setState({
       doneStyle: { backgroundColor: '#669966'},
-      buttonText: 'Adicionado',
+      buttonText: 'Added to favorites',
     })
   }
 
@@ -46,7 +46,7 @@ export default class AddAsFavorite extends Component {
       });
 
       if (count !== 0) {
-        console.log('Album já favoritado.');
+        //console.log('Album já favoritado.');
       } else {
         favorites[`${cat}`].push(obj);
         localStorage.setItem('hibeats-favorites', JSON.stringify(favorites));

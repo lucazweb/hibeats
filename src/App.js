@@ -23,7 +23,6 @@ export default class App extends Component {
     if (this.token) {
       spotifyApi.setAccessToken(this.token);
       sessionStorage.setItem('x-access-token', this.token);
-      // Verificando Token
       this.isLoggedVerify(this.token);
     }
   }
@@ -41,7 +40,7 @@ export default class App extends Component {
     return hashParams;
   }
 
-  isLoggedVerify(token) {
+  isLoggedVerify = (token) => {
     console.log(token);
     const request = new Request('https://api.spotify.com/v1/me', {
       headers: new Headers({
@@ -63,7 +62,6 @@ export default class App extends Component {
       }).then((data) => {
           localStorage.setItem('hibeats-urs', JSON.stringify(data));
       });
-
     return this.state.isLogged;
   }
 

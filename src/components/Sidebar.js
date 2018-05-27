@@ -50,6 +50,11 @@ export default class Sidebar extends Component {
     }
   }
 
+  logOut = () => {
+    sessionStorage.removeItem('x-access-token');
+    history.push('/');
+  }
+
   render(){
     return (
       <Fragment>
@@ -67,7 +72,7 @@ export default class Sidebar extends Component {
           <ul>
               <li style={this.state.locationStyle.search}><Link to="/home"><FontAwesomeIcon icon={faSearch} /> <span>Search</span></Link></li>
               <li style={this.state.locationStyle.favorites}><Link to="/favorites"><FontAwesomeIcon icon={faStar} /> <span>Favorites</span></Link></li>
-              <li><FontAwesomeIcon icon={faSignOutAlt} /> <span>Sair</span></li>
+              <li onClick={this.logOut}><FontAwesomeIcon icon={faSignOutAlt} /> <span>Sair</span></li>
           </ul>
       </div>    
     </Fragment>     
