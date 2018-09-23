@@ -2,8 +2,6 @@
 
 Aplicação React que através da API do Spotify, permite a autenticação e busca de artistas, albuns e tracks. A busca de artistas retorna informações de classificação e popularida dos artistas e albuns, podendo esses serem favoritados (Persistência realizada no localStorage do navegador)
 
-Detalhes técnicos
-
 - Configuração do Webpack do zero para rodar com o React
 - Uso do Sass direto no projeto o que facilitou muito a estilização e responsividade do mesmo
 - Autenticação via Token com uso da API Spotify
