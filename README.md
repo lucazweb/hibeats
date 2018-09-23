@@ -1,4 +1,8 @@
 # Hibeats
+
+![Imagem do projeto](/misc/hibeats_app.png)
+Format: ![Alt Text](url)
+
   - `git clone https://www.github.com/lucazweb/hibeats`
   - Para rodar o projeto no modo desenvolvedor, configurar o `cliente_id` do Spotify e `redirect_uri` no arquivo `src/Login.js`
   - Config. do Router history no arquivo `src/history.js`
