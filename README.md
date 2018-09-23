@@ -11,7 +11,7 @@ Detalhes técnicos
 
 ![Imagem do projeto](/misc/hibeats_app.png)
 
-![Imagem do projeto](/misc/hibeats_mobile.png)
+![Imagem do projeto](/misc/hibeats_mobile.jpg)
  
 
   - `git clone https://www.github.com/lucazweb/hibeats`
